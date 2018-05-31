@@ -78,6 +78,7 @@ MVP
  > So that I can see things on the screen,<br>
  > I want to have a user interface that I can interact with.
 
+<br>
 Extras
  > As a shopkeeper, <br>
  > So I can know when a purchase was made,
