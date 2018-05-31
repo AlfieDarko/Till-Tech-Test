@@ -1,9 +1,7 @@
 # Till-Tech-Test
 
-Till tech test
-==============
 
-We want to sell tills to a local hipster coffee shop who are finally embracing the 21st century. We need a new till to replace their vintage machines - unfortunately, hipster nstaff are too cool to learn a new system, so we need you to build something that they will understand.
+>We want to sell tills to a local hipster coffee shop who are finally embracing the 21st century. We need a new till to replace their vintage machines - unfortunately, hipster staff are too cool to learn a new system, so we need you to build something that they will understand.
 
 ## Specification
 -------------
@@ -60,6 +58,7 @@ MVP
  > I want the correct amount of tax on the receipt,<br>
  > So that my customers can pay the right amount of taxation.
 
+ <br>
  Version 2
  > As a shopkeeper,<br>
  > So that I can accept purchases,<br>
@@ -73,11 +72,24 @@ MVP
  > So that I can quickly calculate discounts,<br>
  > I want to be able to handle discounts and coupons from the till.
 
+ <br>
  Version 3
  > As a shopkeeper,<br>
  > So that I can see things on the screen,<br>
  > I want to have a user interface that I can interact with.
 
+Extras
+ > As a shopkeeper, <br>
+ > So I can know when a purchase was made,
+ > I want to have the date and time of transaction on the receipt.
+
+ > As a shopkeeper, <br>
+ > So my customers know can know where my shop is,
+ > I want all the shop business details on the top of the receipt.
+
+ > As a shopkeeper, <br>
+ > So I can build my brand, <br>
+ > I want a swanky ascii art logo on the top of my receipt.
 
 ## Models
 
