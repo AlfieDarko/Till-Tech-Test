@@ -1,0 +1,11 @@
+Possible Classes
+
+Till Class
+Array (Holds Purchased items)
+Total = map total through array prices
+
+Products Class
+Holds Items JSON
+
+Print Class
+Prints Receipt 
