@@ -58,7 +58,6 @@ MVP
  > I want the correct amount of tax on the receipt,<br>
  > So that my customers can pay the right amount of taxation.
 
- <br>
  Version 2
  > As a shopkeeper,<br>
  > So that I can accept purchases,<br>
@@ -72,13 +71,11 @@ MVP
  > So that I can quickly calculate discounts,<br>
  > I want to be able to handle discounts and coupons from the till.
 
- <br>
  Version 3
  > As a shopkeeper,<br>
  > So that I can see things on the screen,<br>
  > I want to have a user interface that I can interact with.
 
-<br>
 Extras
  > As a shopkeeper, <br>
  > So I can know when a purchase was made,
