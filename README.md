@@ -3,14 +3,14 @@
 Till tech test
 ==============
 
-We want to sell tills to a local hipster coffee shop who are finally embracing the 21st century. We need a new till to replace their vintage machines - unfortunately, hipster staff are too cool to learn a new system, so we need you to build something that they will understand.
+We want to sell tills to a local hipster coffee shop who are finally embracing the 21st century. We need a new till to replace their vintage machines - unfortunately, hipster nstaff are too cool to learn a new system, so we need you to build something that they will understand.
 
 ## Specification
 -------------
 
 This is what a sample receipt looks like:
 
-![a receipt](../images/receipt.jpg)
+![a receipt](https://raw.githubusercontent.com/makersacademy/course/master/images/receipt.jpg?token=AQUBdVoGOUpoaKH9m76_plcxpJZLLtRYks5bGFvFwA%3D%3D)
 
 
 Version 1
@@ -45,7 +45,39 @@ Implement a user interface that can actually be used as a till.
 
 You may use whatever technologies you see fit.
 
-##User Stories
+## User Stories
+
+MVP
+> As a shopkeeper,<Br>
+> I want a receipt list of items by price and quantity,<br>
+> So that my customers know what they have purchased.
+
+ > As a shopkeeper,<br>
+ > I want my customers name printed on the receipt,<br>
+ > So that I know who the purchases belong to.<br>
+
+ > As a shopkeeper,<br>
+ > I want the correct amount of tax on the receipt,<br>
+ > So that my customers can pay the right amount of taxation.
+
+ Version 2
+ > As a shopkeeper,<br>
+ > So that I can accept purchases,<br>
+ > I want to be able to take payments from the till
+
+ > As a shopkeeper,<br>
+ > So that I can give customers the correct amount of money back,<br>
+ > I want to be able to calculate the correct change from the till
+
+ > As a shopkeeper,<br>
+ > So that I can quickly calculate discounts,<br>
+ > I want to be able to handle discounts and coupons from the till.
+
+ Version 3
+ > As a shopkeeper,<br>
+ > So that I can see things on the screen,<br>
+ > I want to have a user interface that I can interact with.
+
 
 ## Models
 
