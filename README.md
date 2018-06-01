@@ -89,7 +89,8 @@ Extras
  > I want a swanky ascii art logo on the top of my receipt.
 
 ## Models
-
+Class Diagram
+(https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/ClassDiagram.jpg)
 ## Technology Used
 
 ## Installation
