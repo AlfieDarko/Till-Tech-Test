@@ -90,7 +90,7 @@ Extras
 
 ## Models
 Class Diagram
-[Class Diagram](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/ClassDiagram.jpg)
+![Class Diagram](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/ClassDiagram.jpg)
 ## Technology Used
 
 ## Installation
