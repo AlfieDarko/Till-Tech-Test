@@ -13,24 +13,25 @@
   <body>
     <div id="mocha"></div>
     <script>
-      mocha.setup('bdd')
-    </script>
+    mocha.setup("bdd");
+</script>
 
     <!-- Library Files-->
     <script src="lib/basket.js" charset="utf-8"></script>
     <script src="lib/till.js" charset="utf-8"></script>
     <script src="lib/products.js" charset="utf-8"></script>
     <script src="lib/receipt.js" charset="utf-8"></script>
+    <script src="lib/coffeeList.js" charset="utf-8"></script>
 
     <!-- Spec Files -->
     <script src="test/test.basket.js" type="text/javascript"></script>
     <script src="test/test.products.js" type="text/javascript"></script>
 
     <script>
-      mocha.checkLeaks();
-      mocha.globals(['jQuery']);
-      mocha.run();
-    </script>
+    mocha.checkLeaks();
+mocha.globals(["jQuery"]);
+mocha.run();
+</script>
 
   </body>
 
