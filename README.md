@@ -109,7 +109,7 @@ Alfie Darko – me@alfiedarko.co.uk
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
 
-[https://github.com/AlfieDarko/job-slink](https://github.com/AlfieDarko/Till-Tech-Test)
+[https://github.com/AlfieDarko/Till-Tech-Test](https://github.com/AlfieDarko/Till-Tech-Test)
 
 ## Contributing
 
