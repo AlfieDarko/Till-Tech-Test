@@ -1,4 +1,8 @@
 describe("Orders", function() {
+	beforeEach(() => {
+		orders = new Orders();
+	});
+
 	orders = new Orders();
 	it("contains a property called basketArray that is an empty array", function() {
 		chai.expect(orders.basket).to.be.instanceof(Array);
@@ -20,18 +24,16 @@ describe("Orders", function() {
 		});
 	});
 
-	// describe(".addToBasket", () => {
-	// 	it("adds a food item to the basket", () => {
-	// 		let tomsOrder = [
-	// 			{
-	// 				name: "Tom",
-	// 				items: [{ "Cafe Latte": 4.75 }]
-	// 			}
-	// 		];
-	//
-	// 		chai
-	// 			.expect(orders.addToBasket("Tom", "Cafe Latte"))
-	// 			.to.change(orders.basket[0], tomsOrder);
-	// 	});
-	// });
+	describe(".addToBasket", () => {
+		it("adds a name and food item to the order object in the basket", () => {
+			let tomsOrder = [
+				{
+					name: "Tom",
+					items: ["Cafe Latte"]
+				}
+			];
+			orders.addToBasket("Tom", "Cafe Latte");
+			chai.expect(orders.showBasket()).to.eql(tomsOrder);
+		});
+	});
 });
