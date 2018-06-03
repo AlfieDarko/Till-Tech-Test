@@ -1,24 +1,31 @@
 Possible Classes
 Dependency Injection! Pass in Products into till class func
 
-Basket Class
+Orders Class
 _____________
 + Basket = [] (Holds Orders as Arrays)
+Basket.prototype.clearOrders()
+Basket.prototype.addOrder(name, args)
 
-Basket.clearOrders()
 
 Till Class
 _____________
 Till.prototype.Total() = map total through basket array prices
-Till.prototype.applyDiscounts()
-Till.prototype.applyTax()
+
+
+Discounts Class
+_________
+Discounts.prototype.applyDiscounts()
+
+
+Tax Class
+__________
+Tax.prototype.applyTax()
 
 
 Products Class
 ___________
 [{hipstercoffee.json}] - Array
-
-Products.prototype.addToBasket(name, args)
 Products.prototype.listItems()
 
 **Takes in Till Class? Dependency Injection**

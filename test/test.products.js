@@ -8,5 +8,9 @@ describe("Products", function() {
 		it("is an array that contains the coffeeList object", function() {
 			chai.expect(products.list[0]).to.be.instanceof(Object);
 		});
+
+		it("contains the key value pair {'Cafe Latte': 4.75} ", () => {
+			chai.expect(products.list[0]).to.deep.contain({ "Cafe Latte": 4.75 });
+		});
 	});
 });
