@@ -8,9 +8,11 @@ describe("Till", function() {
 		});
 	});
 
-	// describe(".calculateTotal()", function() {
-	// 	it("returns an integer", () => {
-	// 		expect(Till.calculateTotal()).to.satisfy(Number.isInteger);
-	// 	});
-	// });
+	describe(".calculateTotal()", function() {
+		it("returns total Orders.basket()", () => {
+			let till = new Till();
+
+			expect(till.calculateTotal()).to.eql(3.85);
+		});
+	});
 });
