@@ -35,5 +35,18 @@ describe("Orders", function() {
 			orders.addToBasket("Tom", "Cafe Latte");
 			chai.expect(orders.showBasket()).to.eql(tomsOrder);
 		});
+
+		it("adds a name and multiple food items to the order object", () => {
+			let annasOrder = [
+				{
+					name: "Anna",
+					items: ["Cafe Latte", "Frappachino", "Orange Juice"]
+				}
+			];
+
+			orders.addToBasket("Anna", "Cafe Latte", "Frappachino", "Orange Juice");
+
+			chai.expect(orders.showBasket()).to.eql(annasOrder);
+		});
 	});
 });
