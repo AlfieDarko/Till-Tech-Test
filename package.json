@@ -1,0 +1,26 @@
+{
+	"name": "till-tech-test",
+	"version": "1.0.0",
+	"description": "Till Tech Test for Makers Academy",
+	"main": "index.js",
+	"directories": {
+		"lib": "lib",
+		"test": "test"
+	},
+	"scripts": {
+		"test": "mocha"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/AlfieDarko/Till-Tech-Test.git"
+	},
+	"author": "Alfie Darko",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/AlfieDarko/Till-Tech-Test/issues"
+	},
+	"homepage": "https://github.com/AlfieDarko/Till-Tech-Test#readme",
+	"devDependencies": {
+		"eslint-config-google": "^0.9.1"
+	}
+}

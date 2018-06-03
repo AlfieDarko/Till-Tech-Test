@@ -1,31 +1,31 @@
+/* eslint-env es6, mocha */
+let expect = chai.expect;
 describe("Orders", function() {
-	beforeEach(() => {
-		orders = new Orders();
-	});
-
-	orders = new Orders();
 	it("contains a property called basketArray that is an empty array", function() {
-		chai.expect(orders.basket).to.be.instanceof(Array);
+		let orders = new Orders();
+		expect(orders.basket).to.be.instanceof(Array);
 	});
 
 	describe(".clearBasket()", function() {
 		it("clears Basket array of all contents", function() {
+			let orders = new Orders();
 			orders.basket.push("Hipster Coffee");
 			orders.clearBasket();
-			chai.expect(orders.basket).to.be.empty;
+			expect(orders.basket).to.be.empty;
 		});
 	});
 
-	describe(".showBasket()", () => {
+	describe(".showBasket()", function() {
 		it("returns the orders Array", () => {
+			let orders = new Orders();
 			orders.basket.push("Hipster Coffee");
-
-			chai.expect(orders.showBasket()).to.eql(orders.basket);
+			expect(orders.showBasket()).to.eql(orders.basket);
 		});
 	});
 
 	describe(".addToBasket", () => {
 		it("adds a name and food item to the order object in the basket", () => {
+			let orders = new Orders();
 			let tomsOrder = [
 				{
 					name: "Tom",
@@ -33,10 +33,11 @@ describe("Orders", function() {
 				}
 			];
 			orders.addToBasket("Tom", "Cafe Latte");
-			chai.expect(orders.showBasket()).to.eql(tomsOrder);
+			expect(orders.showBasket()).to.eql(tomsOrder);
 		});
 
 		it("adds a name and multiple food items to the order object", () => {
+			let orders = new Orders();
 			let annasOrder = [
 				{
 					name: "Anna",
@@ -46,7 +47,7 @@ describe("Orders", function() {
 
 			orders.addToBasket("Anna", "Cafe Latte", "Frappachino", "Orange Juice");
 
-			chai.expect(orders.showBasket()).to.eql(annasOrder);
+			expect(orders.showBasket()).to.eql(annasOrder);
 		});
 	});
 });
