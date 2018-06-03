@@ -1,5 +1,7 @@
 /* eslint-env es6, mocha */
 let expect = chai.expect;
+let assert = chai.assert;
+
 describe("Orders", function() {
 	it("contains a property called basketArray that is an empty array", function() {
 		let orders = new Orders();
@@ -41,13 +43,23 @@ describe("Orders", function() {
 			let annasOrder = [
 				{
 					name: "Anna",
-					items: ["Cafe Latte", "Frappachino", "Orange Juice"]
+					items: ["Cafe Latte", "Single Espresso", "Cortado"]
 				}
 			];
 
-			orders.addToBasket("Anna", "Cafe Latte", "Frappachino", "Orange Juice");
+			orders.addToBasket("Anna", "Cafe Latte", "Single Espresso", "Cortado");
 
 			expect(orders.showBasket()).to.eql(annasOrder);
+		});
+
+		it("throws error if food is not on the menu", () => {
+			let orders = new Orders();
+
+			assert.throws(
+				() => orders.addToBasket("Anna", "Banana"),
+				Error,
+				"item doesnt exist"
+			);
 		});
 	});
 });
