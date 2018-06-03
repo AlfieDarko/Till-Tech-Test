@@ -11,4 +11,27 @@ describe("Orders", function() {
 			chai.expect(orders.basket).to.be.empty;
 		});
 	});
+
+	describe(".showBasket()", () => {
+		it("returns the orders Array", () => {
+			orders.basket.push("Hipster Coffee");
+
+			chai.expect(orders.showBasket()).to.eql(orders.basket);
+		});
+	});
+
+	// describe(".addToBasket", () => {
+	// 	it("adds a food item to the basket", () => {
+	// 		let tomsOrder = [
+	// 			{
+	// 				name: "Tom",
+	// 				items: [{ "Cafe Latte": 4.75 }]
+	// 			}
+	// 		];
+	//
+	// 		chai
+	// 			.expect(orders.addToBasket("Tom", "Cafe Latte"))
+	// 			.to.change(orders.basket[0], tomsOrder);
+	// 	});
+	// });
 });
