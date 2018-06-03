@@ -3,9 +3,11 @@ let expect = chai.expect;
 let assert = chai.assert;
 
 describe("Orders", function() {
-	it("contains a property called basketArray that is an empty array", function() {
-		let orders = new Orders();
-		expect(orders.basket).to.be.instanceof(Array);
+	describe(".basket", () => {
+		it("contains a property called basket that is an empty array", function() {
+			let orders = new Orders();
+			expect(orders.basket).to.be.instanceof(Array);
+		});
 	});
 
 	describe(".clearBasket()", function() {
@@ -25,7 +27,7 @@ describe("Orders", function() {
 		});
 	});
 
-	describe(".addToBasket", () => {
+	describe(".addToBasket()", () => {
 		it("adds a name and food item to the order object in the basket", () => {
 			let orders = new Orders();
 			let tomsOrder = [
