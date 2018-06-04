@@ -3,65 +3,72 @@ let expect = chai.expect;
 let assert = chai.assert;
 
 describe("Orders", function() {
-	describe(".basket", () => {
-		it("contains a property called basket that is an empty array", function() {
-			let orders = new Orders();
-			expect(orders.basket).to.be.instanceof(Array);
-		});
-	});
+  let orders
+  describe(".basket", () => {
 
-	describe(".clearBasket()", function() {
-		it("clears Basket array of all contents", function() {
-			let orders = new Orders();
-			orders.basket.push("Hipster Coffee");
-			orders.clearBasket();
-			expect(orders.basket).to.be.empty;
-		});
-	});
+    beforeEach(function() {
+      orders = new Orders();
+    });
 
-	describe(".showBasket()", function() {
-		it("returns the orders Array", () => {
-			let orders = new Orders();
-			orders.basket.push("Hipster Coffee");
-			expect(orders.showBasket()).to.eql(orders.basket);
-		});
-	});
+    it("contains a property called basket that is an empty array", function() {
+      expect(orders.basket).to.be.instanceof(Array);
+    });
+  });
 
-	describe(".addToBasket()", () => {
-		it("adds a name and food item to the order object in the basket", () => {
-			let orders = new Orders();
-			let tomsOrder = [
-				{
-					name: "Tom",
-					items: ["Cafe Latte"]
-				}
-			];
-			orders.addToBasket("Tom", "Cafe Latte");
-			expect(orders.showBasket()).to.eql(tomsOrder);
-		});
+  describe(".clearBasket()", function() {
+    beforeEach(function() {
+      orders = new Orders();
+    });
 
-		it("adds a name and multiple food items to the order object", () => {
-			let orders = new Orders();
-			let annasOrder = [
-				{
-					name: "Anna",
-					items: ["Cafe Latte", "Single Espresso", "Cortado"]
-				}
-			];
+    it("clears Basket array of all contents", function() {
+      // let orders = new Orders();
+      orders.basket.push("Hipster Coffee");
+      orders.clearBasket();
+      expect(orders.basket).to.be.empty;
+    });
+  });
 
-			orders.addToBasket("Anna", "Cafe Latte", "Single Espresso", "Cortado");
+  describe(".showBasket()", function() {
+    beforeEach(function() {
+      orders = new Orders();
+    });
 
-			expect(orders.showBasket()).to.eql(annasOrder);
-		});
+    it("returns the orders Array", () => {
+      orders.basket.push("Hipster Coffee");
+      expect(orders.showBasket()).to.eql(orders.basket);
+    });
+  });
 
-		it("throws error if food is not on the menu", () => {
-			let orders = new Orders();
+  describe(".addToBasket()", () => {
+    beforeEach(function() {
+      orders = new Orders();
+    });
 
-			assert.throws(
-				() => orders.addToBasket("Anna", "Banana"),
-				Error,
-				"item doesnt exist"
-			);
-		});
-	});
+    it("adds a name and food item to the order object in the basket", () => {
+      let tomsOrder = [
+        {
+          name: "Tom",
+          items: ["Cafe Latte"]
+        }
+      ];
+      orders.addToBasket("Tom", "Cafe Latte");
+      expect(orders.showBasket()).to.eql(tomsOrder);
+    });
+
+    it("adds a name and multiple food items to the order object", () => {
+
+      let annasOrder = [
+        {
+          name: "Anna",
+          items: ["Cafe Latte", "Single Espresso", "Cortado"]
+        }
+      ];
+      orders.addToBasket("Anna", "Cafe Latte", "Single Espresso", "Cortado");
+      expect(orders.showBasket()).to.eql(annasOrder);
+    });
+
+    it("throws error if food is not on the menu", () => {
+      assert.throws(() => orders.addToBasket("Anna", "Banana"), Error, "item doesnt exist");
+    });
+  });
 });
