@@ -14,8 +14,8 @@
   <body>
     <div id="mocha"></div>
     <script>
-    mocha.setup("bdd");
-</script>
+      mocha.setup("bdd");
+    </script>
 
     <!-- Library Files-->
     <script src="src/coffeeList.js" charset="utf-8"></script>
@@ -23,18 +23,20 @@
     <script src="src/till.js" charset="utf-8"></script>
     <script src="src/products.js" charset="utf-8"></script>
     <script src="src/receipt.js" charset="utf-8"></script>
+    <script src="src/total.js" charset="utf-8"></script>
 
     <!-- Spec Files -->
     <script src="test/test.orders.js" type="text/javascript"></script>
     <script src="test/test.products.js" type="text/javascript"></script>
     <script src="test/test.till.js" type="text/javascript"></script>
-
+    <script src="test/test.total.js" type="text/javascript"></script>
+    <script src="test/test.tax.js" type="text/javascript"></script>
 
     <script>
-    mocha.checkLeaks();
-mocha.globals(["jQuery"]);
-mocha.run();
-</script>
+      mocha.checkLeaks();
+      mocha.globals(["jQuery"]);
+      mocha.run();
+    </script>
 
   </body>
 
