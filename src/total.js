@@ -5,12 +5,9 @@
   }
 
   Total.prototype.calculate = function(args) {
-    console.log(args);
     let items = args.items;
 
     for (let i of items) {
-      console.log(i);
-      console.log(this.products);
       if (this.products.hasOwnProperty(i)) {
         this.total += this.products[i];
       }

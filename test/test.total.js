@@ -1,5 +1,5 @@
 /* eslint-env es6, mocha */
-// extract calculateTotal to its own class
+
 describe('Total', function() {
   describe('calculateTotal()', function() {
     it('returns total calculated for one item', function() {

@@ -8,9 +8,11 @@ describe('Receipt', function() {
   });
 
   describe('.printReceipt()', function() {
-    it('prints receipt', function() {
+    it('prints a receipt including name of order', function() {
 
-      expect(receipt.printReceipt()).to.eql('hello')
+      let calculate = sinon.stub(Orders.prototype, "showBasket").returns(['John', 'Cafe Latte'])
+
+      expect(receipt.printReceipt(calculate())).to.include('John')
     });
   });
 });
