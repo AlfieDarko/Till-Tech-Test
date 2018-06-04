@@ -33,3 +33,8 @@ Products.prototype.listItems()
 Print Class
 ___________
 Print.prototype.printReceipt()
+
+
+Should I extract the calculateTotal into its own class?
+Then I can extract calculateTax into its own class?
+Makes Print receipt way easier
