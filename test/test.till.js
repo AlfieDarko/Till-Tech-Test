@@ -9,10 +9,6 @@ describe("Till", function() {
 
 	describe(".calculateTotal()", function() {
 		it("returns total of 1 item from the basket", function() {
-			// create a fake Orders class
-			// create a fake basket method
-			// call calculateTotal on our fake basket to return total
-
 			let till = new Till();
 
 			let basket = sinon.stub(Orders.prototype, "showBasket").returns([
@@ -21,8 +17,6 @@ describe("Till", function() {
 					items: ["Cafe Latte"]
 				}
 			]);
-			// let tomsOrder = ;
-			// stub.returns(tomsOrder);
 			expect(till.calculateTotal()).to.eql(4.75);
 		});
 	});
