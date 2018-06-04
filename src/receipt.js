@@ -10,7 +10,8 @@
     // takes tax to print total afetr tax
 
     // make it pretty
-    return args[0]
+    console.log(args[0] + ": " + args.slice(1));
+    return args[0] + args.slice(1)
   };
   exports.Receipt = Receipt
 })(this)
