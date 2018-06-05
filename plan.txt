@@ -39,6 +39,12 @@ _____________
 calculateTotal()
 calculateSingle()
 
+Payments class
+_____________
+.takePayment(money)
+ - return change
+ error if not enough
+
 
 Should I extract the calculateTotal into its own class?
 Then I can extract calculateTax into its own class?
