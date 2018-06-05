@@ -5,19 +5,23 @@
 
   Receipt.prototype.printReceipt = function(args) {
 
-    let name = args[0]
-    // takes orders to parse name a
-    // and order items n prices
-    // takes total to print totals before tax
-    // takes tax to print total afetr tax
+    const zip = (...arrays) => {
+      const length = Math.min(...arrays.map(arr => arr.length));
+      return Array.from({
+        length
+      }, (value, index) => arrays.map((array => array[index])));
+    };
 
-    // make it pretty
-    // console.log('1st args');
-    // console.log(args);
-    // console.log(this.total.calculate(args).toFixed(2),);
-    //
-    // console.log(args.name + "'s Order: " + args.items + ". Total: " + this.total.calculate(args).toFixed(2));
-    return args.name + "- " + args.items + ": " + this.total.calculate(args).toFixed(2)
+    let receiptString = `${args.name}'s Order: \n\n `
+
+    zip(args.items, this.total.calculateEach(args)).forEach(function(lineItem) {
+      receiptString += lineItem[0] + ": " + lineItem[1] + "\n";
+    });
+
+    receiptString += `
+    Total: ${this.total.calculate(args).toFixed(2)}`
+    console.log(receiptString);
+    return receiptString
 
   };
   exports.Receipt = Receipt
