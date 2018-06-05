@@ -43,6 +43,11 @@ describe('Receipt', function() {
     it('includes single cost of line item Single Expresso', function() {
       expect(receipt.printReceipt(showBasket())).to.include('Single Espresso: 2.05')
     });
+
+    it('includes total with the Taxrate applied', function() {
+      expect(receipt.printReceipt(showBasket())).to.include('Total w/ Tax: 7.39')
+    })
+
   });
 
 });
