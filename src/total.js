@@ -5,6 +5,7 @@
   }
 
   Total.prototype.calculate = function(args) {
+    this.total = 0
     let items = args.items;
 
     for (let i of items) {

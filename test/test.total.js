@@ -1,7 +1,7 @@
 /* eslint-env es6, mocha */
 
 describe('Total', function() {
-  describe('calculateTotal()', function() {
+  describe('calculate()', function() {
     it('returns total calculated for one item', function() {
       let total = new Total()
 

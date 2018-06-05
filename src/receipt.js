@@ -1,5 +1,7 @@
 (function(exports) {
-  function Receipt() {}
+  function Receipt() {
+    this.total = new Total()
+  }
 
   Receipt.prototype.printReceipt = function(args) {
 
@@ -10,8 +12,12 @@
     // takes tax to print total afetr tax
 
     // make it pretty
-    console.log(args[0] + ": " + args.slice(1));
-    return args[0] + args.slice(1)
+    console.log('1st args');
+    console.log(args);
+
+    console.log(args.name + "'s Order: " + args.items + ". Total: " + this.total.calculate(args).toFixed(2));
+    return args.name + "- " + args.items + ": " + this.total.calculate(args).toFixed(2)
+
   };
   exports.Receipt = Receipt
 })(this)
