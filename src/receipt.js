@@ -12,10 +12,11 @@
     // takes tax to print total afetr tax
 
     // make it pretty
-    console.log('1st args');
-    console.log(args);
-
-    console.log(args.name + "'s Order: " + args.items + ". Total: " + this.total.calculate(args).toFixed(2));
+    // console.log('1st args');
+    // console.log(args);
+    // console.log(this.total.calculate(args).toFixed(2),);
+    //
+    // console.log(args.name + "'s Order: " + args.items + ". Total: " + this.total.calculate(args).toFixed(2));
     return args.name + "- " + args.items + ": " + this.total.calculate(args).toFixed(2)
 
   };

@@ -34,6 +34,11 @@ Print Class
 ___________
 Print.prototype.printReceipt()
 
+Total Class
+_____________
+calculateTotal()
+calculateSingle()
+
 
 Should I extract the calculateTotal into its own class?
 Then I can extract calculateTax into its own class?

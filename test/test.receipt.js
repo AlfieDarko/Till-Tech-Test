@@ -36,9 +36,9 @@ describe('Receipt', function() {
       expect(receipt.printReceipt(showBasket())).to.not.include('Banana')
     });
 
-    // it('includes cost of each item serperately', function() {
-    //   expect(receipt.printReceipt(showBasket())).to.include('Cafe Late - 4.75')
-    // });
+    it('includes cost of each item serperately', function() {
+      expect(receipt.printReceipt(showBasket())).to.include('Cafe Late - 4.75')
+    });
   });
 
 });
