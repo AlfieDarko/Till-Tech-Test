@@ -6,7 +6,7 @@
 
   Receipt.prototype.printReceipt = function(args) {
 
-    const zip = (...arrays) => {
+    function zip(...arrays) {
       const length = Math.min(...arrays.map(arr => arr.length));
       return Array.from({
         length
@@ -19,10 +19,16 @@
       receiptString += lineItem[0] + ": " + lineItem[1] + "\n";
     });
 
+    let itemsTotalWithoutTax = this.total.calculate(args).toFixed(2)
+
+    let amountToTax = (this.tax.applyTax(this.total.calculate(args)).toFixed(2) - this.total.calculate(args).toFixed(2)).toFixed(2)
+
     receiptString += `
-    Total: ${this.total.calculate(args).toFixed(2)}
+    Total: ${itemsTotalWithoutTax}
     `
-    receiptString += `Total w/ Tax: ${this.tax.applyTax(this.total.calculate(args))}`
+    receiptString += `Tax: ${amountToTax}
+    `
+    receiptString += `Total w/ Tax: ${ (parseFloat(itemsTotalWithoutTax) + parseFloat(amountToTax))}`
 
     console.log(receiptString);
     return receiptString
