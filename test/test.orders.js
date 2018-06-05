@@ -9,34 +9,6 @@ describe("Orders", function() {
     beforeEach(function() {
       orders = new Orders();
     });
-
-    it("contains a property called basket that is an empty array", function() {
-      expect(orders.basket).to.be.instanceof(Array);
-    });
-  });
-
-  describe(".clearBasket()", function() {
-    beforeEach(function() {
-      orders = new Orders();
-    });
-
-    it("clears Basket array of all contents", function() {
-      // let orders = new Orders();
-      orders.basket.push("Hipster Coffee");
-      orders.clearBasket();
-      expect(orders.basket).to.be.empty;
-    });
-  });
-
-  describe(".showBasket()", function() {
-    beforeEach(function() {
-      orders = new Orders();
-    });
-
-    it("returns the orders Array", () => {
-      orders.basket.push("Hipster Coffee");
-      expect(orders.showBasket()).to.eql(orders.basket);
-    });
   });
 
   describe(".addToBasket()", () => {
@@ -71,4 +43,29 @@ describe("Orders", function() {
       assert.throws(() => orders.addToBasket("Anna", "Banana"), Error, "item doesnt exist");
     });
   });
+
+  describe(".showBasket()", function() {
+    beforeEach(function() {
+      orders = new Orders();
+    });
+
+    it("returns the orders Array", () => {
+      orders.basket.push("Hipster Coffee");
+      expect(orders.showBasket()).to.eql(orders.basket);
+    });
+  });
+
+  describe(".clearBasket()", function() {
+    beforeEach(function() {
+      orders = new Orders();
+    });
+
+    it("clears Basket array of all contents", function() {
+      // let orders = new Orders();
+      orders.addToBasket("Tom", "Cafe Latte");
+      orders.clearBasket();
+      expect(orders.showBasket()).to.be.empty;
+    });
+  });
+
 });
