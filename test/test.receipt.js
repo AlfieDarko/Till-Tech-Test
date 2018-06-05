@@ -25,7 +25,7 @@ describe('Receipt', function() {
     });
 
     it('prints a receipt including the correct price of order', function() {
-      expect(receipt.printReceipt(showBasket())).to.include(6.80)
+      expect(receipt.printReceipt(showBasket())).to.include('Total: 6.80')
     });
 
     it('prints a receipt including the correct items ', function() {
@@ -38,6 +38,10 @@ describe('Receipt', function() {
 
     it('includes single cost of line item Cafe Latte', function() {
       expect(receipt.printReceipt(showBasket())).to.include('Cafe Latte: 4.75')
+    });
+
+    it('includes single cost of line item Single Expresso', function() {
+      expect(receipt.printReceipt(showBasket())).to.include('Single Espresso: 2.05')
     });
   });
 
