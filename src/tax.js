@@ -1,12 +1,16 @@
 (function(exports) {
-  function Tax() {}
+  function Tax() {
+    this.postTaxTotal = 0
+  }
 
   Tax.prototype.applyTax = function(total) {
 
     const TAXRATE = 8.64
 
     let additionalTax = (total / 100) * TAXRATE
-    return parseFloat((additionalTax + total).toFixed(2))
+    let postTaxTotal = parseFloat((additionalTax + total).toFixed(2))
+    this.postTaxTotal = postTaxTotal
+    return postTaxTotal
   };
 
   exports.Tax = Tax;
