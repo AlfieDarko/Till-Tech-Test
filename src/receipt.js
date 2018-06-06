@@ -2,6 +2,7 @@
   function Receipt() {
     this.total = new Total()
     this.tax = new Tax()
+    this.discount = new Discount()
   }
 
   Receipt.prototype.printReceipt = function(args) {
@@ -26,6 +27,7 @@
     receiptString += `
     Total: ${itemsTotalWithoutTax}
     `
+
     receiptString += `Tax: ${amountToTax}
     `
     receiptString += `Total w/ Tax: ${ (parseFloat(itemsTotalWithoutTax) + parseFloat(amountToTax))}`
