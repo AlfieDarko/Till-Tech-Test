@@ -1,6 +1,7 @@
 (function(exports) {
   function Payments() {
     this.expectedPayment = 0
+    this.changeExpected = 0
   }
 
   Payments.prototype.takePayment = function(amount) {
@@ -9,18 +10,19 @@
     } else if (amount < this.expectedPayment) {
       throw new Error("Not enough to make payment")
 
+    } else {
+      this.changeExpected = amount - this.expectedPayment
+      console.log('Took Payment Successfully');
     }
   }
-
-  //   Payments.prototype.verifyPayment = function(amount) {
-  //     this.expectedPayment = amount
-  //   };
-  // };
 
   Payments.prototype.verifyPayment = function(postTaxAmount) {
     this.expectedPayment = postTaxAmount
     return this.expectedPayment
   };
 
+  Payments.prototype.returnChange = function() {
+    return parseFloat(this.changeExpected.toFixed(2))
+  };
   exports.Payments = Payments
 })(this)

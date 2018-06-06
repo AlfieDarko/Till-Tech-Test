@@ -41,6 +41,25 @@ describe('Payments', function() {
       payments.verifyPayment(applyTax())
       assert.throws(() => payments.takePayment(5), Error, "Not enough to make payment")
     });
+  });
 
+  describe('.returnChange()', function() {
+    beforeEach(function() {
+      payments = new Payments()
+      applyTax = sinon.stub(Tax.prototype, "applyTax")
+
+    });
+
+    afterEach(function() {
+      Tax.prototype.applyTax.restore()
+
+    });
+
+    it('returns the correct amount of change to give to customer', function() {
+      applyTax.returns(7.39)
+      payments.verifyPayment(applyTax())
+      payments.takePayment(10)
+      expect(payments.returnChange()).to.eql(2.61)
+    });
   });
 });
