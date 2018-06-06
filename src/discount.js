@@ -6,6 +6,10 @@
     let discountedTotal = 0
     discountedTotal = total
 
+    if (showBasket[0].items.includes('') || showBasket[0].items.includes("Chocolate Chip Muffin") || showBasket[0].items.includes('Muffin Of The Day')) {
+      discountRate += 10
+    }
+
     if (total > 50) {
       discountRate += 5
     }
