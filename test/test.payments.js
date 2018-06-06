@@ -24,24 +24,23 @@ describe('Payments', function() {
     beforeEach(function() {
       payments = new Payments()
 
-      // applyTax = sinon.stub(Tax.prototype, "applyTax")
+      applyTax = sinon.stub(Tax.prototype, "applyTax")
 
     });
 
     afterEach(function() {
-      // Tax.prototype.applyTax.restore()
+      Tax.prototype.applyTax.restore()
     });
 
     it('only accepts numbers as payment', function() {
-
       assert.throws(() => payments.takePayment("Number"), Error, "Not a valid number")
     });
 
-    // it('verifies', function() {
-    //
-    //   applyTax.returns(4.50)
-    //   assert.throws(() => payments.takePayment(5), Error, "Not enough to cover purchase")
-    //
-    // });
+    it('throws error if amount isnt more than expected payment', function() {
+      applyTax.returns(7.39)
+      payments.verifyPayment(applyTax())
+      assert.throws(() => payments.takePayment(5), Error, "Not enough to make payment")
+    });
+
   });
 });
