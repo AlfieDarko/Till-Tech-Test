@@ -2,11 +2,11 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hipster Coffee Till</title>
 
   <!-- Library Files-->
-  <script src="../lib/jquery-3.3.1.js" charset="utf-8"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
   <!--  Source Files-->
@@ -23,8 +23,9 @@
   <script src="../src/tillInterface.js" charset="utf-8"></script>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="/css/master.css">
-  <link rel="stylesheet" href="/css/bulma.css">
+  <link rel="stylesheet" href="
+  ../css/bulma.css">
+  <link rel="stylesheet" href="../css/master.css">
 
 </head>
 
@@ -41,12 +42,41 @@
     </div>
   </section>
 
+  <section>
+    <div class="container">
+      <div class="field is-horizontal">
+
+        <label class="label">Customers:    </label>
+        <div class="control">
+          <input id="customer-names-input" class="input" type="text" placeholder="Enter Names...">
+        </div>
+
+        <div class="field-body">
+          <div class="field">
+            <div class="field-label">
+              <!-- Left empty for spacing -->
+            </div>
+            <div class="control">
+              <div class="field-label">
+                <!-- Left empty for spacing -->
+              </div>
+              <button id="add-name-button" class="button is-primary">
+        Add Names
+      </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><br>
+  </section>
+
   <div class="container">
     <div class="columns">
-      <div class="column">
+      <div class="column is-4">
         <b>Items</b> <br>
         <div class="select is-multiple">
-          <select multiple size="10">
+          <select id="items-in-dropdown" multiple size="10">
     <option value="Cafe Latte">Cafe Latte: £4.75</option>
     <option value="Flat White">Flat White: £4.75</option>
     <option value="Cappucino">Cappucino: £3.85</option>
@@ -58,31 +88,67 @@
     <option value="Choc Mudcake">Choc Mudcake: £6.40</option>
     <option value="Choc Mousse">Choc Mousse: £8.20</option>
     <option value="Affogato">Affogato: £14.80</option>
-    <option value="Tirimasu">Tirimasu: £11.4</option>
+    <option value="Tirimasu">Tirimasu: £11.40</option>
     <option value="Blueberry Muffin">Blueberry Muffin: £4.05</option>
     <option value="Chocolate Chip Muffin">Chocolate Chip Muffin: £4.05</option>
     <option value="Muffin Of The Day">Muffin Of The Day: £4.55</option>
-
             </select>
         </div>
         <div class="item-div">
           <div class="select is-multiple"></div>
         </div>
+
+
+        <br>
+        <div>
+          Add To Cart
+          <br>
+
+          <div class="">
+            <button id="add-to-cart-button" class="button">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+
       </div>
+
       <div class="column">
-        Basket
+        Cart
+        <br>
+        <div class="select is-multiple">
+          <select multiple size="10">
+            <option value="Cafe Latte" disabled>Cafe Latte: £4.75</option>
+            <option value="Flat White" >Flat White: £4.75</option>
+
+          </select>
+
+        </div>
+
+        <div class="">
+          Clear Cart
+          <br>
+          <div class="">
+            <a class="button">
+<i class="fas fa-trash-alt"></i>
+          </a>
+          </div>
+
+        </div>
+
       </div>
+
       <div class="column">
         Number Pad
       </div>
+
     </div>
+
+
+
+
+
   </div>
-
-
-
-
-
-
 </body>
 
 </html>
