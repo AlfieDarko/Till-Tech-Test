@@ -3,6 +3,8 @@
 describe("Receipt", function() {
 	let receipt;
 	let showBasket;
+	let takePayment;
+	let verifyPayment;
 
 	describe(".printReceipt()", function() {
 		beforeEach(function() {
@@ -13,10 +15,15 @@ describe("Receipt", function() {
 				name: "Tom",
 				items: ["Cafe Latte", "Single Espresso"]
 			});
+
+			verifyPayment = sinon.stub(Payments.prototype, "verifyPayment");
+			takePayment = sinon.stub(Payments.prototype, "takePayment");
 		});
 
 		afterEach(function() {
 			Orders.prototype.showBasket.restore();
+			Payments.prototype.verifyPayment.restore();
+			Payments.prototype.takePayment.restore();
 		});
 
 		it("prints a receipt including the correct name of order", function() {

@@ -7,6 +7,7 @@
 
 	Receipt.prototype.printReceipt = function(args) {
 		let self = this;
+		let receiptString;
 
 		function zip(...arrays) {
 			const length = Math.min(...arrays.map(arr => arr.length));
@@ -26,7 +27,7 @@
 			}
 		}
 
-		let receiptString = `${args.name}'s Order: \n\n`;
+		receiptString = `${args.name}'s Order: \n\n`;
 
 		zip(args.items, this.total.calculateEach(args)).forEach(function(lineItem) {
 			receiptString += lineItem[0] + ": " + lineItem[1] + "\n";
@@ -37,27 +38,26 @@
 			[args]
 		);
 
-		console.log(itemsTotalDiscounts.toFixed(2));
-
 		let itemsTotalWithoutTax = this.total.calculate(args).toFixed(2);
-
-		let itemsTotalWith;
 
 		let amountToTax = (
 			this.tax.applyTax(this.total.calculate(args)).toFixed(2) -
 			this.total.calculate(args).toFixed(2)
 		).toFixed(2);
 
+		let totalWithTax =
+			parseFloat(itemsTotalWithoutTax) + parseFloat(amountToTax);
+
 		receiptString += `
-    Total: ${itemsTotalDiscounts.toFixed(2)}
-    `;
+		Total: ${itemsTotalDiscounts.toFixed(2)}
+		`;
 
 		discountDisplayer();
 
 		receiptString += `Tax: ${amountToTax}
-    `;
-		receiptString += `Total w/ Tax: ${parseFloat(itemsTotalWithoutTax) +
-			parseFloat(amountToTax)}`;
+		`;
+		receiptString += `Total w/ Tax: ${totalWithTax}
+			`;
 
 		console.log(receiptString);
 		return receiptString;
