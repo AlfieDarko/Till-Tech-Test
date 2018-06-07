@@ -93,6 +93,9 @@ Extras
 
 <b>1st Proposal Class Diagram<b>
 <br>
+
+1st Proposal Class Diagram
+
 ![1st Proposal Class Diagram](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/ClassDiagram.jpg)
 
 ## Technology Used
