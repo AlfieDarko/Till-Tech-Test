@@ -97,6 +97,9 @@ Extras
 
 ## Technology Used
 
+Javascript, JQuery <br>
+Testing: Mocha, Chai, Sinon
+
 ## Installation
 
 ## Usage Example
