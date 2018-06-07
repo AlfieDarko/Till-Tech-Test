@@ -37,7 +37,7 @@
 			[args]
 		);
 
-		discountDisplayer();
+		console.log(itemsTotalDiscounts.toFixed(2));
 
 		let itemsTotalWithoutTax = this.total.calculate(args).toFixed(2);
 
@@ -49,8 +49,10 @@
 		).toFixed(2);
 
 		receiptString += `
-    Total: ${itemsTotalWithoutTax}
+    Total: ${itemsTotalDiscounts.toFixed(2)}
     `;
+
+		discountDisplayer();
 
 		receiptString += `Tax: ${amountToTax}
     `;
