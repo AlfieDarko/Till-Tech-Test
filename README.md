@@ -110,7 +110,10 @@ Git clone the repo into your documents and go to the views folder and open index
 
 ## Usage Example
 
-![Hipster Till]()
+Till interface:
+
+![Hipster Till](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.32.13.png)
+
 
 ## Development Setup
 
