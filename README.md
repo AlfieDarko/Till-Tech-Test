@@ -114,14 +114,47 @@ Till interface:
 
 ![Hipster Till](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.32.13.png)
 
+<br>
+1. Enter the customers name
+![Enter customer name](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.32.22.png)
 
+2. Select items in the item list and then add to cart when complete!
+![add to cart](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.32.27.png)
+
+3. When the items are added, they will show up on the cart list. You can clear the cart and start again if you make a mistake
+![add to cart2](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.32.44.png)
+
+4. After adding items to the cart, the total amount is displayed on the till display screen. We can now take cash payments to pay for the customers purchase. Press the Pay Now button
+![till display](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.33.09.png)
+<br>
+5. We can now enter the amount the customer wants to pay.
+![pay by cash](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.33.23.png)
+
+6. If you have paid enough, a printout of the customers items, with the line totals, pre and post tax totals, along with any discounts they may have received depending on their spending or items. You will also see the amount given and a calculation of the exact change.
+![receipt](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.33.32.png)
 ## Development Setup
 
 To run the test runner, open `TestRunner.html` in the main folder.
 
-## Release History
+## Approach
+
+I wanted to make this a single page site to try and keep this as functional as possible. I thought about using node and express but opted against that as there was no need for a server for this type of application. normal JS and JQuery for the front end was sufficient and it was good to practice javascript after a small break.
+
+I initially planned only a few classes but as I was developing the application, I found that I needed to extract more things in order to adhere to DRY and single responsibility principles.
+
+Using TDD helped me stay on this modular Approach.
+
+I also used IIFE classes as a way of encapsulating functions so that it would be hard to manipulate things using the web console. I used the prototype pattern instead of the new ES6 class syntax just to get a further understanding of what was going on under the hood of the ES6 Class syntax.
 
 ## TODO
+
+If I had more time, I would have developed the interface abit more thoroughly. I found out that the design aspect needed more planning then I initially did.
+
+I also would have liked to do a bit more behavioural driven development but opted not to as I wanted to keep the interface simple and because of time restraints. It would have been good practice to use cucumber on this project.
+
+I am happy with the testing but maybe I think I could have had more edge case testing but for the amount of time I done this in, I think the specs are sufficient.
+
+I would have also set up my linting tools at the very beginning.
 
 ## Meta
 
