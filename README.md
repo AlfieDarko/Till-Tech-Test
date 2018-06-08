@@ -161,7 +161,7 @@ Using TDD helped me stay on this modular Approach.
 I also used IIFE classes as a way of encapsulating functions so that it would be hard to manipulate things using the web console. I used the prototype pattern instead of the  ES6 class syntax just to get a further understanding of what was going on under the hood of this.
 
 ## TODO
-What i would have liked to implement if I had more time.
+What I would have liked to implement if I had more time.
 
 - Function that adds an extra zero to float numbers like '6.4' so it can represent '6.40'
 
