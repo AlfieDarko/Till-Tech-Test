@@ -19,6 +19,7 @@
   };
 
   Total.prototype.calculateEach = function(args) {
+    console.log(args[0], 'q4tw');
     this.total = 0
     let lineTotal = []
     let items = args.items;

@@ -1,85 +1,113 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hipster Coffee Till</title>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hipster Coffee Till</title>
 
-    <!-- Library Files-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script defer="defer" src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <!-- Library Files-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script defer="defer" src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
-    <!-- Source Files-->
-    <script src="../src/coffeeList.js" charset="utf-8"></script>
-    <script src="../src/orders.js" charset="utf-8"></script>
-    <script src="../src/till.js" charset="utf-8"></script>
-    <script src="../src/products.js" charset="utf-8"></script>
-    <script src="../src/receipt.js" charset="utf-8"></script>
-    <script src="../src/total.js" charset="utf-8"></script>
-    <script src="../src/tax.js" charset="utf-8"></script>
-    <script src="../src/receipt.js" charset="utf-8"></script>
-    <script src="../src/payments.js" charset="utf-8"></script>
-    <script src="../src/discount.js" charset="utf-8"></script>
-    <script src="../src/tillInterface.js" charset="utf-8"></script>
+  <!-- Source Files-->
+  <script src="../src/coffeeList.js" charset="utf-8"></script>
+  <script src="../src/orders.js" charset="utf-8"></script>
+  <script src="../src/till.js" charset="utf-8"></script>
+  <script src="../src/products.js" charset="utf-8"></script>
+  <script src="../src/receipt.js" charset="utf-8"></script>
+  <script src="../src/total.js" charset="utf-8"></script>
+  <script src="../src/tax.js" charset="utf-8"></script>
+  <script src="../src/receipt.js" charset="utf-8"></script>
+  <script src="../src/payments.js" charset="utf-8"></script>
+  <script src="../src/discount.js" charset="utf-8"></script>
+  <script src="../src/tillInterface.js" charset="utf-8"></script>
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="
   ../css/bulma.css">
-    <link rel="stylesheet" href="../css/master.css">
+  <link rel="stylesheet" href="../css/master.css">
 
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <section class="section">
-      <div class="container">
-        <h1 class="title">
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
           The Hipster Till
         </h1>
-        <p class="subtitle">
-          Serving hipsters since
-          <strong>2018</strong>!
-        </p>
-      </div>
-    </section>
+      <p class="subtitle">
+        Serving hipsters since
+        <strong>2018</strong>!
+      </p>
+    </div>
+  </section>
 
-    <section>
-      <div class="container">
-        <div class="field is-horizontal">
+  <section>
+    <div class="container">
+      <div class="field is-horizontal">
 
-          <label class="label">Customers:
+        <label class="label">Customers:
           </label>
-          <div class="control">
-            <input id="customer-names-input" class="input" type="text" placeholder="Enter Names...">
-          </div>
+        <div class="control">
+          <input id="customer-names-input" class="input" type="text" placeholder="Enter Names...">
+        </div>
 
-          <div class="field-body">
-            <div class="field">
+        <div class="field-body">
+          <div class="field">
+            <div class="field-label">
+              <!-- Left empty for spacing -->
+            </div>
+            <div class="control">
               <div class="field-label">
                 <!-- Left empty for spacing -->
               </div>
-              <div class="control">
-                <div class="field-label">
-                  <!-- Left empty for spacing -->
-                </div>
-                <button id="add-name-button" class="button is-primary">
+              <button id="add-name-button" class="button is-primary">
                   Add Names
                 </button>
-              </div>
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="columns">
+
+        <div class="column">
+        </div>
+        <div class="column">
+        </div>
+
+        <div class="column">
+          <div class="field is-horizontal">
+            <div class="level-right">
+              <div class="field">
+                <div class="control">
+                  Total:
+                  <input id="total-text-area" class="input is-primary" type="text" placeholder="00.00" disabled>
+
+                </div>
+                <a id="pay-button" class="button is-success ">Pay Cash!</a>
+                <a id="print-receipt-button" class="button is-success" disabled>Print Receipt!</a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </div>
 
       </div><br>
-    </section>
+  </section>
 
-    <div class="container">
-      <div class="columns">
-        <div class="column is-4">
-          <b>Items</b>
-          <br>
-          <div class="select is-multiple">
-            <select id="items-in-dropdown" multiple="multiple" size="10">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-4">
+        <b>Items</b>
+        <br>
+        <div class="select is-multiple">
+          <select id="items-in-dropdown" multiple="multiple" size="10">
               <option value="Cafe Latte">Cafe Latte: £4.75</option>
               <option value="Flat White">Flat White: £4.75</option>
               <option value="Cappucino">Cappucino: £3.85</option>
@@ -96,53 +124,79 @@
               <option value="Chocolate Chip Muffin">Chocolate Chip Muffin: £4.05</option>
               <option value="Muffin Of The Day">Muffin Of The Day: £4.55</option>
             </select>
-          </div>
-          <div class="item-div">
-            <div class="select is-multiple"></div>
-          </div>
-
-          <br>
-          <div>
-            Add To Cart
-            <br>
-
-            <div class="">
-              <button id="add-to-cart-button" class="button">
-                <i class="fas fa-cart-plus"></i>
-              </button>
-            </div>
-          </div>
-
+        </div>
+        <div class="item-div">
+          <div class="select is-multiple"></div>
         </div>
 
-        <div class="column">
-          Cart
+        <br>
+        <div>
+          Add To Cart
           <br>
-          <div class="select is-multiple">
-            <select id="cart-with-items" multiple="multiple" size="10"></select>
-
-          </div>
 
           <div class="">
-            Clear Cart
-            <br>
-            <div class="">
-              <a id="clear-cart-button" class="button">
-                <i class="fas fa-trash-alt"></i>
-              </a>
-            </div>
-
+            <button id="add-to-cart-button" class="button">
+                <i class="fas fa-cart-plus"></i>
+              </button>
           </div>
-
-        </div>
-
-        <div class="column">
-          Number Pad
         </div>
 
       </div>
 
+      <div class="column">
+        Cart
+        <br>
+        <div class="select is-multiple">
+          <select id="cart-with-items" multiple="multiple" size="5"></select>
+
+        </div>
+
+        <div class="">
+          Clear Cart
+          <br>
+          <div class="">
+            <a id="clear-cart-button" class="button">
+                <i class="fas fa-trash-alt"></i>
+              </a>
+          </div>
+        </div>
+        <br>
+
+      </div>
+
+      <div class="column">
+        Receipt
+        <br>
+        <div class="">
+          <textarea id="receipt-text-area" class="textarea" placeholder="10 lines of textarea" rows="10" disabled></textarea>
+        </div>
+      </div>
+
     </div>
-  </body>
+
+  </div>
+
+  <div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Enter Cash</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <!-- Content ... -->
+        <div class="field">
+          <div class="control">
+            <input class="input is-primary" type="text" placeholder="Primary input">
+          </div>
+        </div>
+      </section>
+      <footer class="modal-card-foot">
+        <button id="submit-to-till-button" class="button is-success">Submit</button>
+        <button id="cancel-submit-button" class="button">Cancel</button>
+      </footer>
+    </div>
+  </div>
+</body>
 
 </html>

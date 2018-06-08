@@ -11,7 +11,6 @@ $(document).ready(function() {
       $("#customer-names-input").prop("disabled", true);
       $("#add-name-button").prop("disabled", true);
     }
-    console.log(customerNameFromInput);
   });
 
   $("#add-to-cart-button").click(function() {
@@ -22,9 +21,7 @@ $(document).ready(function() {
       $("#items-in-dropdown option:selected").each(function(i, sel) {
         itemsArray.push($(sel).val())
       });
-      // console.log(itemsArray);
       till.orders.basket.push({name: customerNameFromInput, items: itemsArray})
-      // console.log(till.orders.showBasket());
       till.orders.showBasket()[0].items.forEach(function(item) {
         let option = document.createElement("option")
         console.log(option);
@@ -32,17 +29,35 @@ $(document).ready(function() {
         option.disabled = true
         document.getElementById('cart-with-items').appendChild(option)
       })
-
       $("#add-to-cart-button").prop("disabled", true)
+
+      $("#total-text-area").val(till.tax.applyTax(till.discount.applyDiscounts(till.total.calculate(till.orders.showBasket()[0]).toFixed(2), till.orders.showBasket([0]))))
+
+      // let receipt = till.receipt.printReceipt(till.orders.showBasket()[0]);
+      //
+      // $("#receipt-text-area").val(receipt)
+
     }
   });
 
   $("#clear-cart-button").click(function() {
-
     till.orders.clearBasket()
-
     $('#cart-with-items').find('option').remove().end()
     $("#add-to-cart-button").prop("disabled", false)
-
   })
+
+  $("#pay-button").click(function() {
+    $(".modal").addClass("is-active");
+  });
+
+  $("#cancel-submit-button").click(function() {
+    $(".modal").removeClass("is-active");
+  })
+
+  $(".delete").click(function() {
+    $(".modal").removeClass("is-active");
+  });
+
+  $(".submit-to-till-button").click(function() {})
+
 })
