@@ -105,7 +105,8 @@ Domain Model
 
 Javascript, JQuery <br>
 Testing: Mocha, Chai, Sinon<br>
-Linting: ESLint, Prettier
+Linting: ESLint, Prettier<br>
+CSS: Bulma CSS
 
 ## Installation
 
@@ -152,7 +153,7 @@ To run the test runner, open `TestRunner.html` in the main folder.
 
 ## Approach
 
-I wanted to make this a single page site to try and keep this as functional as possible. I thought about using node and express but opted against that as there was no need for a server for this type of application. normal JS and JQuery for the front end was sufficient and it was good to practice javascript after a small break.
+I wanted to make this a single page site to try and keep this as functional as possible. I thought about using node and express but opted against that as there was no need for a server for this type of application. Normal JS and JQuery for the front end was sufficient and it was good to practice javascript after a small break.
 
 I initially planned only a few classes but as I was developing the application, I found that I needed to extract more things in order to adhere to DRY and single responsibility principles.
 
