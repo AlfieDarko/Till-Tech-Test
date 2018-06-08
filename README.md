@@ -99,8 +99,7 @@ Extras
 ![1st Proposal Class Diagram](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/ClassDiagram.jpg)
 
 Actual Class Diagram <br>
-UML Diagram <br>
-Domain Model
+![Final Diagram](https://github.com/AlfieDarko/Till-Tech-Test/blob/master/finaldiagram.jpg?raw=true)
 ## Technology Used
 
 Javascript, JQuery <br>
