@@ -161,6 +161,15 @@ Using TDD helped me stay on this modular Approach.
 I also used IIFE classes as a way of encapsulating functions so that it would be hard to manipulate things using the web console. I used the prototype pattern instead of the  ES6 class syntax just to get a further understanding of what was going on under the hood of this.
 
 ## TODO
+What i would have liked to implement if I had more time.
+
+- Function that adds an extra zero to float numbers like '6.4' so it can represent '6.40'
+
+- ASCII Art on the top of the receipts!
+
+- Including the date and time of transaction
+
+- Shop details
 
 If I had more time, I would have planned and developed the interface a bit more thoroughly. I found out that the design aspect changed as I developed it along to the spec, but some small things were unanticipated.
 
@@ -170,7 +179,10 @@ I am happy with the testing but maybe I think I could have had more edge case te
 
 I tried not to leave comments to explain the obvious parts of the code but I feel on a few occasions I had to leave a line explaining a private function. Perhaps that meant that that piece of code wasn't as readable as I thought?
 
+I would have liked to go through the code more thoroughly to DRY the codebase .
+
 I would have also set up my linting tools at the very beginning.
+
 
 ## Meta
 
