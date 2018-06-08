@@ -19,21 +19,21 @@ $(document).ready(function(){
     } else {
 
       let itemsArray = []
+
       $("#items-in-dropdown option:selected").each(function(i, sel) {
-        console.log($(sel).val())
+        itemsArray.push($(sel).val())
       });
 
       console.log(itemsArray);
-console.log($("#items-in-dropdown option:selected").length);
 
-   let destructure = []
-   destructure.length = $("#items-in-dropdown option:selected").length
+      till.orders.basket.push({
+        name: customerNameFromInput,
+        items: itemsArray
+      })
 
-      till.orders.addToBasket(customerNameFromInput, itemsArray);
+      console.log(till.orders.showBasket());
 
-      console.log( let [v1, v2] = ("#items-in-dropdown option:selected").split());
 
-      // console.log(till.orders.showBasket(), let [v1, v2] = ("#items-in-dropdown option:selected").split( ));
     }
 
 
@@ -42,14 +42,3 @@ console.log($("#items-in-dropdown option:selected").length);
 
 
 });
-
-// for(element in till.orders.products) {
-//   let opt = document.createElement("option");
-//   opt.value = element
-//   opt.innertHTML =   `${element}: ${till.orders.products[element]}`;
-//
-//
-//   // append it to the select element
-//   newSelect.appendChild(opt);
-//   index++
-// }

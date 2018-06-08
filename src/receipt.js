@@ -9,6 +9,7 @@
 		let self = this;
 		let receiptString;
 
+		// function to zip the items and price into one function
 		function zip(...arrays) {
 			const length = Math.min(...arrays.map(arr => arr.length));
 			return Array.from(
