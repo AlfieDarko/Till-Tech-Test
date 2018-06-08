@@ -101,13 +101,20 @@ Extras
 ## Technology Used
 
 Javascript, JQuery <br>
-Testing: Mocha, Chai, Sinon
+Testing: Mocha, Chai, Sinon<br>
+Linting: ESLint, Prettier
 
 ## Installation
 
+Git clone the repo into your documents and go to the views folder and open index.html in your favourite browser
+
 ## Usage Example
 
+![Hipster Till]()
+
 ## Development Setup
+
+To run the test runner, open `TestRunner.html` in the main folder.
 
 ## Release History
 
