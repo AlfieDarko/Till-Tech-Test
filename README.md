@@ -98,6 +98,9 @@ Extras
 
 ![1st Proposal Class Diagram](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/ClassDiagram.jpg)
 
+Actual Class Diagram <br>
+UML Diagram <br>
+Domain Model
 ## Technology Used
 
 Javascript, JQuery <br>
@@ -115,23 +118,34 @@ Till interface:
 ![Hipster Till](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.32.13.png)
 
 <br>
-1. Enter the customers name
+1. Enter the customers name<br>
+
 ![Enter customer name](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.32.22.png)
 
-2. Select items in the item list and then add to cart when complete!
-![add to cart](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.32.27.png)
+2. Select items in the item list and then add to cart when complete!<br>
 
-3. When the items are added, they will show up on the cart list. You can clear the cart and start again if you make a mistake
-![add to cart2](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.32.44.png)
+![add to cart](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.32.27.png)<br>
 
-4. After adding items to the cart, the total amount is displayed on the till display screen. We can now take cash payments to pay for the customers purchase. Press the Pay Now button
+
+3. When the items are added, they will show up on the cart list. You can clear the cart and start again if you make a mistake.<br>
+
+![add to cart2](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.32.44.png)<br>
+
+
+4. After adding items to the cart, the total amount is displayed on the till display screen. We can now take cash payments to pay for the customers purchase. Press the Pay Now button<br>
+
 ![till display](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.33.09.png)
 <br>
-5. We can now enter the amount the customer wants to pay.
-![pay by cash](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.33.23.png)
 
-6. If you have paid enough, a printout of the customers items, with the line totals, pre and post tax totals, along with any discounts they may have received depending on their spending or items. You will also see the amount given and a calculation of the exact change.
-![receipt](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.33.32.png)
+5. We can now enter the amount the customer wants to pay.<br>
+
+![pay by cash](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.33.23.png)<br>
+
+
+6. If you have paid enough, a printout of the customers items, with the line totals, pre and post tax totals, along with any discounts they may have received depending on their spending or items. You will also see the amount given and a calculation of the exact change.<br>
+
+![receipt](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.33.32.png)<br>
+
 ## Development Setup
 
 To run the test runner, open `TestRunner.html` in the main folder.
@@ -144,15 +158,17 @@ I initially planned only a few classes but as I was developing the application, 
 
 Using TDD helped me stay on this modular Approach.
 
-I also used IIFE classes as a way of encapsulating functions so that it would be hard to manipulate things using the web console. I used the prototype pattern instead of the new ES6 class syntax just to get a further understanding of what was going on under the hood of the ES6 Class syntax.
+I also used IIFE classes as a way of encapsulating functions so that it would be hard to manipulate things using the web console. I used the prototype pattern instead of the  ES6 class syntax just to get a further understanding of what was going on under the hood of this.
 
 ## TODO
 
-If I had more time, I would have developed the interface abit more thoroughly. I found out that the design aspect needed more planning then I initially did.
+If I had more time, I would have planned and developed the interface a bit more thoroughly. I found out that the design aspect changed as I developed it along to the spec, but some small things were unanticipated.
 
 I also would have liked to do a bit more behavioural driven development but opted not to as I wanted to keep the interface simple and because of time restraints. It would have been good practice to use cucumber on this project.
 
 I am happy with the testing but maybe I think I could have had more edge case testing but for the amount of time I done this in, I think the specs are sufficient.
+
+I tried not to leave comments to explain the obvious parts of the code but I feel on a few occasions I had to leave a line explaining a private function. Perhaps that meant that that piece of code wasn't as readable as I thought?
 
 I would have also set up my linting tools at the very beginning.
 
