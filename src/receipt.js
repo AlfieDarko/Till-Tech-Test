@@ -29,7 +29,7 @@
     receiptString = `${args.name}'s Order: \n\n`;
 
     zip(args.items, this.total.calculateEach(args)).forEach(function(lineItem) {
-      receiptString += lineItem[0] + ": " + lineItem[1] + "\n";
+      receiptString += lineItem[0] + ": £" + lineItem[1] + "\n";
     });
 
     let itemsTotalDiscounts = this.discount.applyDiscounts(this.total.calculate(args), [args]);
@@ -41,14 +41,14 @@
     let totalWithTax = parseFloat(itemsTotalWithoutTax) + parseFloat(amountToTax);
 
     receiptString += `
-		Total: ${itemsTotalDiscounts.toFixed(2)}
+		Total: £${itemsTotalDiscounts.toFixed(2)}
 		`;
 
     discountDisplayer();
 
-    receiptString += `Tax: ${amountToTax}
+    receiptString += `Tax: £${amountToTax}
 		`;
-    receiptString += `Total w/ Tax: ${totalWithTax.toFixed(2)}
+    receiptString += `Total w/ Tax: £${totalWithTax.toFixed(2)}
 			`;
 
     console.log(receiptString);

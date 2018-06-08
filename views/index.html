@@ -82,12 +82,11 @@
             <div class="level-right">
               <div class="field">
                 <div class="control">
-                  Total:
+                  <b>Total:</b>
                   <input id="total-text-area" class="input is-primary" type="text" placeholder="00.00" disabled>
 
                 </div>
                 <a id="pay-button" class="button is-success ">Pay Cash!</a>
-                <a id="print-receipt-button" class="button is-success" disabled>Print Receipt!</a>
 
               </div>
 
@@ -144,11 +143,14 @@
       </div>
 
       <div class="column">
-        Cart
+        <b>Cart</b>
         <br>
         <div class="select is-multiple">
-          <select id="cart-with-items" multiple="multiple" size="5"></select>
+          <select id="cart-with-items" multiple="multiple" size="10">
 
+            <option value="" disabled>------------- </option>
+
+          </select>
         </div>
 
         <div class="">
@@ -165,7 +167,7 @@
       </div>
 
       <div class="column">
-        Receipt
+        <b>Receipt</b>
         <br>
         <div class="">
           <textarea id="receipt-text-area" class="textarea" placeholder="10 lines of textarea" rows="10" disabled></textarea>
@@ -187,7 +189,7 @@
         <!-- Content ... -->
         <div class="field">
           <div class="control">
-            <input class="input is-primary" type="text" placeholder="Primary input">
+            <input id="money-in-till-text-area" class="input is-primary" type="text" placeholder="Primary input">
           </div>
         </div>
       </section>
