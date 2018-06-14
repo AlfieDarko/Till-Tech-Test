@@ -1,6 +1,5 @@
 (function(exports) {
   function Orders() {
-    // this.products = new Products().list[0];
     this.basket = [];
   }
 
