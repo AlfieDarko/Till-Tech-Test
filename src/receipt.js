@@ -1,5 +1,5 @@
 (function(exports) {
-  function Receipt() {
+  function Receipt(Total, Tax, Discount) {
     this.total = new Total();
     this.tax = new Tax();
     this.discount = new Discount();
@@ -12,9 +12,12 @@
     // function to zip the items and price into one array
     function zip(...arrays) {
       const length = Math.min(...arrays.map(arr => arr.length));
-      return Array.from({
-        length
-      }, (value, index) => arrays.map(array => array[index]));
+      return Array.from(
+        {
+          length
+        },
+        (value, index) => arrays.map(array => array[index])
+      );
     }
 
     // function to add the discount strings onto the receiptString
@@ -32,13 +35,20 @@
       receiptString += lineItem[0] + ": £" + lineItem[1] + "\n";
     });
 
-    let itemsTotalDiscounts = this.discount.applyDiscounts(this.total.calculate(args), [args]);
+    let itemsTotalDiscounts = this.discount.applyDiscounts(
+      this.total.calculate(args),
+      [args]
+    );
 
     let itemsTotalWithoutTax = this.total.calculate(args).toFixed(2);
 
-    let amountToTax = (this.tax.applyTax(this.total.calculate(args)).toFixed(2) - this.total.calculate(args).toFixed(2)).toFixed(2);
+    let amountToTax = (
+      this.tax.applyTax(this.total.calculate(args)).toFixed(2) -
+      this.total.calculate(args).toFixed(2)
+    ).toFixed(2);
 
-    let totalWithTax = parseFloat(itemsTotalWithoutTax) + parseFloat(amountToTax);
+    let totalWithTax =
+      parseFloat(itemsTotalWithoutTax) + parseFloat(amountToTax);
 
     receiptString += `
 		Total: £${itemsTotalDiscounts.toFixed(2)}

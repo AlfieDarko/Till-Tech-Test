@@ -1,11 +1,11 @@
 (function(exports) {
   function Total() {
-    this.products = new Products().list[0]
-    this.preTaxTotal = 0
+    this.products = new Products().list[0];
+    this.preTaxTotal = 0;
   }
 
   Total.prototype.calculate = function(args) {
-    let total = 0
+    let total = 0;
     let items = args.items;
 
     for (let i of items) {
@@ -14,13 +14,13 @@
       }
     }
 
-    this.preTaxTotal = total
+    this.preTaxTotal = total;
     return total;
   };
 
   Total.prototype.calculateEach = function(args) {
-    this.total = 0
-    let lineTotal = []
+    this.total = 0;
+    let lineTotal = [];
     let items = args.items;
 
     for (let i of items) {
@@ -29,9 +29,8 @@
       }
     }
 
-    return lineTotal
-
+    return lineTotal;
   };
 
   exports.Total = Total;
-})(this)
+})(this);
