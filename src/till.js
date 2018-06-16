@@ -17,7 +17,9 @@
     let verifiedPayment = this.payment.verifiyPayment(applicatedTax);
   };
 
-  Till.prototype.printReceipt = function() {};
+  Till.prototype.printReceipt = function() {
+    this.receipt.printReceipt()
+  };
 
   exports.Till = Till;
 })(this);

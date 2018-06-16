@@ -35,7 +35,6 @@ describe("Total", function() {
         name: "Tom",
         items: ["Cafe Latte"]
       };
-      console.log(products.listProducts());
       expect(total.calculate(basket)).to.eql(4.75);
     });
 
