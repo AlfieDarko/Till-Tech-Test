@@ -15,7 +15,6 @@
       if (element.items.includes("Blueberry Muffin") ||
           element.items.includes("Chocolate Chip Muffin") ||
           element.items.includes("Muffin Of The Day")) {
-            console.log("muffinDiscountBool is on");
             muffinDiscountBool = true;
           }
     });

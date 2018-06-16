@@ -1,5 +1,5 @@
 (function(exports) {
-  function Total(Products) {
+  function Total() {
     this.products = new Products().list[0];
   }
 

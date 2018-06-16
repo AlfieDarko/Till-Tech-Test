@@ -1,6 +1,6 @@
 (function(exports) {
   function Receipt(Total, Tax, Discount, Products) {
-    this.total = new Total(Products);
+    this.total = new Total(new Products());
     this.tax = new Tax();
     this.discount = new Discount();
   }
