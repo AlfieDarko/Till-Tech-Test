@@ -6,26 +6,30 @@
   Total.prototype.calculate = function(args) {
     let total = 0;
     let items = args.items;
+    let self = this
 
-    for (let i of items) {
-      if (this.products.hasOwnProperty(i)) {
-        total += this.products[i];
+    let Total = items
+    .reduce((newTotal, items) => {
+      if(self.products.hasOwnProperty(items)) {
+        return newTotal += self.products[items]
       }
-    }
+    }, 0)
 
-    return total;
+    return Total;
   };
 
   Total.prototype.calculateEach = function(args) {
     this.total = 0;
     let lineTotal = [];
     let items = args.items;
+    let expLineTotal = []
+    let self = this
 
-    for (let i of items) {
-      if (this.products.hasOwnProperty(i)) {
-        lineTotal.push(this.products[i]);
-      }
-    }
+    items
+    .reduce((newLineTotal, items) => {
+      if (self.products.hasOwnProperty(items)) {
+        lineTotal.push(self.products[items]);
+    }},[])
 
     return lineTotal;
   };

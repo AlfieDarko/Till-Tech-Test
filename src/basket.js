@@ -21,14 +21,12 @@
     // so we can extend the scope of this inside of internal functions
     let self = this;
 
-    let args = [];
-
     // so we can skip the name in the arguments and push the food into an array
-    for (var i = 1; i < arguments.length; i++) {
-      args.push(arguments[i]);
-    }
+    let args = Array.from(arguments)
+    .slice(1)
 
-    // if it is successful we will create an order object with our items and name
+
+    // Now ww will create an newOrder object with our items and name
     let newOrder = {
       name,
       items: [...args]
