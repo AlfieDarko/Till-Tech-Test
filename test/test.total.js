@@ -1,10 +1,10 @@
 /* eslint-env es6, mocha */
 describe("Total", function() {
   let total;
-  let productsMock;
+  let productsStub;
   describe("calculate()", function() {
     beforeEach(function() {
-      productsMock = sinon
+      productsStub = sinon
         .stub(Products.prototype, "listProducts")
         .callsFake(() => ({
           "Cafe Latte": 4.75,
@@ -23,11 +23,11 @@ describe("Total", function() {
           "Chocolate Chip Muffin": 4.05,
           "Muffin Of The Day": 4.55
         }));
-      total = new Total(new productsMock());
+      total = new Total(new productsStub());
     });
 
     afterEach(function() {
-      productsMock.restore();
+      productsStub.restore();
     });
 
     it("returns total calculated for one item", function() {

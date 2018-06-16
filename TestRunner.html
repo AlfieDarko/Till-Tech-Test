@@ -37,18 +37,19 @@
   <script src="test/test.receipt.js" type="text/javascript"></script>
   <script src="test/test.payments.js" type="text/javascript"></script>
   <script src="test/test.discount.js" type="text/javascript"></script>
-<script type="text/javascript">
-let basket = new Basket()
-let payments = new Payments()
-let products = new Products()
-let total = new Total(products)
-let tax = new Tax()
-let discount = new Discount()
-let receipt = new Receipt(total, tax, discount, products)
+  <script type="text/javascript">
+    let basket = new Basket()
+    let payments = new Payments()
+    let products = new Products()
+    let total = new Total(products)
+    let tax = new Tax()
+    let discount = new Discount()
+    let receipt = new Receipt(total, tax, discount)
 
-let till = new Till(basket, payments, receipt )
+    let till = new Till(basket, payments, receipt)
 
-</script>
+    // till = new Till(new Basket(), new Payments(), new Receipt(new Total(new Products()), new Tax(), new Discount()))
+  </script>
   <script>
     mocha.checkLeaks();
     mocha.globals(["jQuery"]);

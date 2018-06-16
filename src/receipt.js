@@ -3,6 +3,7 @@
     this.total = Total;
     this.tax = Tax;
     this.discount = Discount;
+    console.log(this.total);
     // this.products = new Products();
   }
 
@@ -33,19 +34,22 @@
     receiptArray.push(`${args.name}'s Order:`);
 
     // zip line item and price togethr and push into receipt array
-    console.log(this.total.calculate(args));
-    zip(args.items, this.total.calculateEach(args)).forEach(function(lineItem) {
+console.log(args.items, 'where the food');
+    zip(args.items, total.calculateEach(args)).forEach(function(lineItem) {
+      console.log(lineItem, 'is it here');
       receiptArray.push(`${lineItem[0]}: £${lineItem[1]}`);
     });
 
-    let itemsTotalDiscounts = this.discount.applyDiscounts(
-      this.total.calculate(args),
+    console.log( total.calculateEach(args), 'zipped');
+
+    let itemsTotalDiscounts = discount.applyDiscounts(
+      total.calculate(args),
       [args]
     );
-    let itemsTotalWithoutTax = this.total.calculate(args).toFixed(2);
+    let itemsTotalWithoutTax = total.calculate(args).toFixed(2);
     let amountToTax = (
-      this.tax.applyTax(this.total.calculate(args)).toFixed(2) -
-      this.total.calculate(args).toFixed(2)
+      tax.applyTax(total.calculate(args)).toFixed(2) -
+      total.calculate(args).toFixed(2)
     ).toFixed(2);
 
     let totalWithTax =

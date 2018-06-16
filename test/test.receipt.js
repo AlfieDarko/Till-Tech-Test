@@ -6,10 +6,41 @@ describe("Receipt", function() {
   let takePayment;
   let verifyPayment;
   let calculateEach;
+  let totalStub
+  let productsStub
 
+  let totalMock
+  let productsMock
   describe(".printReceipt()", function() {
     beforeEach(function() {
-      receipt = new Receipt(Total, Tax, Discount, Products);
+
+      sinon.stub(Total.prototype, 'calculate').callsFake(() => 6.80)
+      sinon.stub(Total.prototype, 'calculateEach').callsFake(() => [ 4.75, 2.05 ])
+
+      console.log(total.calculate(), 'woo');
+
+      sinon
+      .stub(Products.prototype, 'listProducts')
+      .callsFake(() => (
+        {
+          "Cafe Latte": 4.75,
+          "Flat White": 4.75,
+          Cappucino: 3.85,
+          "Single Espresso": 2.05,
+          "Double Espresso": 3.75,
+          Americano: 3.75,
+          Cortado: 4.55,
+          Tea: 3.65,
+          "Choc Mudcake": 6.4,
+          "Choc Mousse": 8.2,
+          Affogato: 14.8,
+          Tiramisu: 11.4,
+          "Blueberry Muffin": 4.05,
+          "Chocolate Chip Muffin": 4.05,
+          "Muffin Of The Day": 4.55
+        }
+      ))
+      receipt = new Receipt( Total, Tax, Discount, Products);
 
       returnBasket = {
         name: "Tom",
@@ -17,7 +48,12 @@ describe("Receipt", function() {
       };
     });
 
-    afterEach(function() {});
+    afterEach(function() {
+      Total.prototype.calculate.restore()
+      Total.prototype.calculateEach.restore()
+
+      Products.prototype.listProducts.restore()
+    });
 
     it("prints a receipt including the correct name of order", function() {
       expect(receipt.printReceipt(returnBasket)).to.include("Tom's Order:");
@@ -28,6 +64,7 @@ describe("Receipt", function() {
     });
 
     it("prints a receipt including the correct items ", function() {
+      console.log(receipt.printReceipt(returnBasket), 'lol');
       expect(receipt.printReceipt(returnBasket)).to.include(
         "Cafe Latte: £4.75"
       );
@@ -38,6 +75,8 @@ describe("Receipt", function() {
     });
 
     it("includes single cost of line item Cafe Latte", function() {
+console.log(receipt.printReceipt(returnBasket), 'loged')
+
       expect(receipt.printReceipt(returnBasket)).to.include(
         "Cafe Latte: £4.75"
       );

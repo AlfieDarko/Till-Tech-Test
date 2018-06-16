@@ -17,6 +17,7 @@
   };
 
   Total.prototype.calculateEach = function(args) {
+    console.log(args);
     this.total = 0;
     let lineTotal = [];
     let items = args.items;
@@ -26,6 +27,7 @@
         lineTotal.push(this.products[i]);
       }
     }
+    console.log(lineTotal, 'line');
 
     return lineTotal;
   };
