@@ -1,7 +1,6 @@
 (function(exports) {
   function Total() {
     this.products = new Products().list[0];
-    this.preTaxTotal = 0;
   }
 
   Total.prototype.calculate = function(args) {
@@ -14,7 +13,6 @@
       }
     }
 
-    this.preTaxTotal = total;
     return total;
   };
 

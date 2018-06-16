@@ -2,17 +2,18 @@
 let expect = chai.expect;
 let assert = chai.assert;
 
-describe("Orders", function() {
+describe("Basket", function() {
   let orders;
   describe(".basket", () => {
     beforeEach(function() {
-      orders = new Orders();
+      orders = new Basket();
     });
   });
 
   describe(".addToBasket()", () => {
     beforeEach(function() {
-      orders = new Orders();
+      orders = new Basket();
+      orders.clearBasket()
     });
 
     it("adds a name and food item to the order object in the basket", () => {
@@ -23,7 +24,8 @@ describe("Orders", function() {
         }
       ];
       orders.addToBasket("Tom", "Cafe Latte");
-      expect(orders.showBasket()).to.eql(tomsOrder);
+      console.log(orders.returnBasket());
+      expect(orders.returnBasket()).to.eql(tomsOrder);
     });
 
     it("adds a name and multiple food items to the order object", () => {
@@ -34,31 +36,22 @@ describe("Orders", function() {
         }
       ];
       orders.addToBasket("Anna", "Cafe Latte", "Single Espresso", "Cortado");
-      expect(orders.showBasket()).to.eql(annasOrder);
+      expect(orders.returnBasket()).to.eql(annasOrder);
     });
   });
 
-  describe(".showBasket()", function() {
-    beforeEach(function() {
-      orders = new Orders();
-    });
 
-    it("returns the orders Array", () => {
-      orders.basket.push("Hipster Coffee");
-      expect(orders.showBasket()).to.eql(orders.basket);
-    });
-  });
 
   describe(".clearBasket()", function() {
     beforeEach(function() {
-      orders = new Orders();
+      orders = new Basket();
     });
 
     it("clears Basket array of all contents", function() {
-      // let orders = new Orders();
+      // let orders = new Basket();
       orders.addToBasket("Tom", "Cafe Latte");
       orders.clearBasket();
-      expect(orders.showBasket()).to.be.empty;
+      expect(orders.returnBasket()).to.be.empty;
     });
   });
 });

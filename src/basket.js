@@ -1,17 +1,17 @@
 (function(exports) {
-  function Orders() {
-    this.basket = [];
-  }
+  function Basket() {}
 
-  Orders.prototype.clearBasket = function() {
-    this.basket.length = 0;
+  const _basket = []
+
+  Basket.prototype.clearBasket = function() {
+    _basket.length = 0
   };
 
-  Orders.prototype.showBasket = function() {
-    return this.basket;
+  Basket.prototype.returnBasket = function() {
+    return _basket;
   };
 
-  Orders.prototype.addToBasket = function(name, food) {
+  Basket.prototype.addToBasket = function(name, food) {
     // takes a name, and take a food item
 
     // so we can extend the scope of this inside of internal functions
@@ -24,14 +24,14 @@
       args.push(arguments[i]);
     }
 
-    // if it successful we will create an order object with out items and name
+    // if it is successful we will create an order object with our items and name
     let newOrder = {
       name,
       items: [...args]
     };
 
-    this.basket.push(newOrder);
+    _basket.push(newOrder);
   };
 
-  exports.Orders = Orders;
+  exports.Basket = Basket;
 })(this);

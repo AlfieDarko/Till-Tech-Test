@@ -22,15 +22,19 @@ $(document).ready(function() {
         itemsArray.push($(sel).val())
       });
       till.orders.basket.push({name: customerNameFromInput, items: itemsArray})
-      till.orders.showBasket()[0].items.forEach(function(item) {
+
+      till.orders.returnBasket()[0].items.forEach(function(item) {
         let option = document.createElement("option")
         option.textContent = item;
         option.disabled = true
         document.getElementById('cart-with-items').appendChild(option)
       })
+
       $("#add-to-cart-button").prop("disabled", true)
 
-      $("#total-text-area").val(till.tax.applyTax(till.discount.applyDiscounts(till.total.calculate(till.orders.showBasket()[0]).toFixed(2), till.orders.showBasket([0]))))
+      let totalToPay = till.tax.applyTax(till.discount.applyDiscounts(till.total.calculate(till.orders.returnBasket()[0]).toFixed(2), till.orders.returnBasket([0])))
+
+      $("#total-text-area").val(totalToPay)
 
     }
   });
@@ -54,12 +58,13 @@ $(document).ready(function() {
   });
 
   $("#submit-to-till-button").click(function() {
-    till.payments.verifyPayment(till.tax.applyTax(till.discount.applyDiscounts(till.total.calculate(till.orders.showBasket()[0]).toFixed(2), till.orders.showBasket([0]))))
+
+    till.makePayment()
 
     if (till.payments.takePayment($("#money-in-till-text-area").val())) {
       $(".modal").removeClass("is-active");
 
-      let receipt = till.receipt.printReceipt(till.orders.showBasket()[0]);
+      let receipt = till.receipt.printReceipt(till.orders.returnBasket()[0]);
 
       $("#receipt-text-area").val(receipt + `\n CASH: £${$("#money-in-till-text-area").val()} \n CHANGE: £${till.payments.returnChange()}`)
 

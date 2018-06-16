@@ -3,52 +3,46 @@
 describe("Discount", function() {
   let discount;
   let calculate;
-  let showBasket;
+  let returnBasket;
   describe(".applyDiscounts()", function() {
     beforeEach(function() {
       discount = new Discount();
-      calculate = sinon.stub(Total.prototype, "calculate");
 
-      showBasket = sinon.stub(Orders.prototype, "showBasket");
+      returnBasket = sinon.stub(Basket.prototype, "returnBasket");
     });
 
     afterEach(function() {
-      Total.prototype.calculate.restore();
-      Orders.prototype.showBasket.restore();
+      Basket.prototype.returnBasket.restore();
 
       // Unwraps the spy
     });
 
     it("applies 5% discount on orders over 50", function() {
-      calculate.returns(100);
-      showBasket.returns([
+       returnBasket = [
         {
           name: "John",
           items: [
             "Affogato",
+            "Cafe Latte",
+            "Flat White",
             "Affogato",
-            "Affogato",
-            "Affogato",
-            "Affogato",
-            "Affogato",
-            "Affogato"
+            "Double Espresso"
           ]
         }
-      ]);
+      ];
 
-      expect(discount.applyDiscounts(calculate(), showBasket())).to.eql(95);
+      expect(discount.applyDiscounts(100, returnBasket)).to.eql(95);
     });
 
     it("applies a 10% discount on orders containing Muffins", function() {
-      calculate.returns(12.7);
-      showBasket.returns([
+      returnBasket = [
         {
           name: "John",
           items: ["Chocolate Chip Muffin", "Cafe Latte", "Flat White"]
         }
-      ]);
+      ];
 
-      expect(discount.applyDiscounts(calculate(), showBasket())).to.eql(11.43);
+      expect(discount.applyDiscounts(12.7, returnBasket)).to.eql(11.43);
     });
   });
 });

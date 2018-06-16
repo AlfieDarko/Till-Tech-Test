@@ -1,6 +1,6 @@
 (function(exports) {
   function Products() {
-    const coffeeList = [
+    const coffeeList =
       {
         shopName: "The Coffee Connection",
         address: "123 Lakeside Way",
@@ -25,9 +25,9 @@
           }
         ]
       }
-    ];
+    ;
 
-    this.list = coffeeList[0].prices;
+    this.list = coffeeList.prices;
   }
 
   Products.prototype.listProducts = function() {

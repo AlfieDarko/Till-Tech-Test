@@ -1,5 +1,5 @@
 (function(exports) {
-  function Receipt(Total, Tax, Discount) {
+  function Receipt() {
     this.total = new Total();
     this.tax = new Tax();
     this.discount = new Discount();
@@ -8,7 +8,7 @@
   Receipt.prototype.printReceipt = function(args) {
     let self = this;
     let receiptString;
-
+    let lineItemString
     // function to zip the items and price into one array
     function zip(...arrays) {
       const length = Math.min(...arrays.map(arr => arr.length));
@@ -61,7 +61,7 @@
     receiptString += `Total w/ Tax: £${totalWithTax.toFixed(2)}
 			`;
 
-    console.log(receiptString);
+    // console.log(receiptString);
     return receiptString;
   };
   exports.Receipt = Receipt;

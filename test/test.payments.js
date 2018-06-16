@@ -4,22 +4,7 @@ describe("Payments", function() {
 	let payments;
 	let applyTax;
 
-	describe(".verifyPayment()", function() {
-		beforeEach(function() {
-			payments = new Payments();
-			applyTax = sinon.stub(Tax.prototype, "applyTax");
-		});
 
-		afterEach(function() {
-			Tax.prototype.applyTax.restore();
-		});
-
-		it("verifies how much needs to be paid and sets as the expectecd payment property", function() {
-			applyTax.returns(7.39);
-			payments.verifyPayment(applyTax());
-			expect(payments.expectedPayment).to.equal(7.39);
-		});
-	});
 
 	describe(".takePayment()", function() {
 		beforeEach(function() {
