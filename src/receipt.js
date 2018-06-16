@@ -3,7 +3,6 @@
     this.total = Total;
     this.tax = Tax;
     this.discount = Discount;
-    console.log(this.total);
     // this.products = new Products();
   }
 
