@@ -4,7 +4,7 @@ describe("Total", function() {
 	let total;
 	describe("calculate()", function() {
 		beforeEach(function() {
-			total = new Total();
+			total = new Total(Products);
 		});
 		it("returns total calculated for one item", function() {
 			let basket = {

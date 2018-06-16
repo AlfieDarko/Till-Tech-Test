@@ -3,40 +3,39 @@ let expect = chai.expect;
 let assert = chai.assert;
 
 describe("Basket", function() {
-  let orders;
+  let basket;
   describe(".basket", () => {
     beforeEach(function() {
-      orders = new Basket();
+      basket = new Basket();
     });
   });
 
   describe(".addToBasket()", () => {
     beforeEach(function() {
-      orders = new Basket();
-      orders.clearBasket()
+      basket = new Basket();
+      basket.clearBasket()
     });
 
     it("adds a name and food item to the order object in the basket", () => {
-      let tomsOrder = [
+      let tomsOrder =
         {
           name: "Tom",
           items: ["Cafe Latte"]
         }
-      ];
-      orders.addToBasket("Tom", "Cafe Latte");
-      console.log(orders.returnBasket());
-      expect(orders.returnBasket()).to.eql(tomsOrder);
+      ;
+      basket.addToBasket("Tom", "Cafe Latte");
+      expect(basket.returnBasket()).to.eql(tomsOrder);
     });
 
     it("adds a name and multiple food items to the order object", () => {
-      let annasOrder = [
+      let annasOrder =
         {
           name: "Anna",
           items: ["Cafe Latte", "Single Espresso", "Cortado"]
         }
-      ];
-      orders.addToBasket("Anna", "Cafe Latte", "Single Espresso", "Cortado");
-      expect(orders.returnBasket()).to.eql(annasOrder);
+      ;
+      basket.addToBasket("Anna", "Cafe Latte", "Single Espresso", "Cortado");
+      expect(basket.returnBasket()).to.eql(annasOrder);
     });
   });
 
@@ -44,14 +43,14 @@ describe("Basket", function() {
 
   describe(".clearBasket()", function() {
     beforeEach(function() {
-      orders = new Basket();
+      basket = new Basket();
     });
 
     it("clears Basket array of all contents", function() {
       // let orders = new Basket();
-      orders.addToBasket("Tom", "Cafe Latte");
-      orders.clearBasket();
-      expect(orders.returnBasket()).to.be.empty;
+      basket.addToBasket("Tom", "Cafe Latte");
+      basket.clearBasket();
+      expect(basket.returnBasket()).to.be.eql([]);
     });
   });
 });

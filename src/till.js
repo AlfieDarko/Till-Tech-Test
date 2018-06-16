@@ -1,16 +1,13 @@
 (function(exports) {
-  function Till(Basket, Total, Payments, Receipt, Tax, Discount) {
+  function Till(Basket, Payments, Receipt, Total) {
     this.basket = new Basket();
-    this.total = new Total();
     this.payments = new Payments();
-    this.receipt = new Receipt();
-    this.tax = new Tax();
-    this.discount = new Discount();
+    this.receipt = new Receipt(new Total(new Products()));
   }
 
   Till.prototype.makePayment = function() {
-    let calculatedTotal =this.total.calculate(this.basket.returnBasket()[0].toFixed(2), this.basket.returnBasket([0]))
-    let applicatedDiscounts = this.discount.applyDiscounts(calculatedTotal)
+    let calculatedTotal =this.receipt.total.calculate(this.basket.returnBasket().toFixed(2), this.basket.returnBasket())
+    let applicatedDiscounts = this.receipt.discount.applyDiscounts(calculatedTotal)
     let applicatedTax = this.tax.applyTax(applicatedDiscounts)
     let verifiedPayment = this.payment.verifiyPayment(applicatedTax)
   };

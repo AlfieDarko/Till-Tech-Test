@@ -1,13 +1,13 @@
 (function(exports) {
-  function Receipt() {
-    this.total = new Total();
+  function Receipt(Total, Tax, Discount, Products) {
+    this.total = new Total(Products);
     this.tax = new Tax();
     this.discount = new Discount();
   }
 
   Receipt.prototype.printReceipt = function(args) {
     let self = this;
-    let receiptString;
+    let receiptArray = [];
     let lineItemString
     // function to zip the items and price into one array
     function zip(...arrays) {
@@ -20,28 +20,26 @@
       );
     }
 
-    // function to add the discount strings onto the receiptString
+    // function to add the discount strings onto the receiptArray
     function discountDisplayer() {
       if (self.discount.muffinDiscountBool) {
-        receiptString += "10% Muffin Discount! \n";
+        receiptArray.push("10% Muffin Discount! \n");
       } else if (self.discount.spendOver50DiscountBool) {
-        receiptString += "5% Off Purchases over 50 Discount! \n";
+        receiptArray.push("5% Off Purchases over 50 Discount!");
       }
     }
 
-    receiptString = `${args.name}'s Order: \n\n`;
+    receiptArray.push(`${args.name}'s Order:`);
 
     zip(args.items, this.total.calculateEach(args)).forEach(function(lineItem) {
-      receiptString += lineItem[0] + ": £" + lineItem[1] + "\n";
+      receiptArray.push(`${lineItem[0]}: £${lineItem[1]}`) ;
     });
 
     let itemsTotalDiscounts = this.discount.applyDiscounts(
       this.total.calculate(args),
       [args]
     );
-
     let itemsTotalWithoutTax = this.total.calculate(args).toFixed(2);
-
     let amountToTax = (
       this.tax.applyTax(this.total.calculate(args)).toFixed(2) -
       this.total.calculate(args).toFixed(2)
@@ -50,19 +48,13 @@
     let totalWithTax =
       parseFloat(itemsTotalWithoutTax) + parseFloat(amountToTax);
 
-    receiptString += `
-		Total: £${itemsTotalDiscounts.toFixed(2)}
-		`;
-
+    receiptArray.push(`Total: £${itemsTotalDiscounts.toFixed(2)}`);
     discountDisplayer();
+    receiptArray.push(`Tax: £${amountToTax}`)
+    receiptArray.push(`Total w/ Tax: £${totalWithTax.toFixed(2)}`);
 
-    receiptString += `Tax: £${amountToTax}
-		`;
-    receiptString += `Total w/ Tax: £${totalWithTax.toFixed(2)}
-			`;
-
-    // console.log(receiptString);
-    return receiptString;
+    console.log(receiptArray);
+    return receiptArray;
   };
   exports.Receipt = Receipt;
 })(this);

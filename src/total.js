@@ -1,9 +1,10 @@
 (function(exports) {
-  function Total() {
+  function Total(Products) {
     this.products = new Products().list[0];
   }
 
   Total.prototype.calculate = function(args) {
+    console.log(args);
     let total = 0;
     let items = args.items;
 
@@ -17,6 +18,7 @@
   };
 
   Total.prototype.calculateEach = function(args) {
+    console.log(args);
     this.total = 0;
     let lineTotal = [];
     let items = args.items;

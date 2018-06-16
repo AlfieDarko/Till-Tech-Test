@@ -7,13 +7,9 @@ describe("Discount", function() {
   describe(".applyDiscounts()", function() {
     beforeEach(function() {
       discount = new Discount();
-
-      returnBasket = sinon.stub(Basket.prototype, "returnBasket");
     });
 
     afterEach(function() {
-      Basket.prototype.returnBasket.restore();
-
       // Unwraps the spy
     });
 

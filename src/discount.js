@@ -7,11 +7,9 @@
     let inputTotal = total
     let muffinDiscountBool = false
     let spendOver50DiscountBool = false
-
     let discountRate = 0;
     let discountedTotal = 0;
     discountedTotal = total;
-
 
     returnBasket.forEach(function(element) {
       if (element.items.includes("Blueberry Muffin") ||

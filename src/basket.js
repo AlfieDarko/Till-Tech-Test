@@ -8,7 +8,11 @@
   };
 
   Basket.prototype.returnBasket = function() {
-    return _basket;
+    if (_basket[0] === undefined) {
+      return _basket
+    } else {
+      return _basket[0];
+    }
   };
 
   Basket.prototype.addToBasket = function(name, food) {

@@ -9,12 +9,9 @@ describe("Payments", function() {
 	describe(".takePayment()", function() {
 		beforeEach(function() {
 			payments = new Payments();
-
-			applyTax = sinon.stub(Tax.prototype, "applyTax");
 		});
 
 		afterEach(function() {
-			Tax.prototype.applyTax.restore();
 		});
 
 		it("only accepts numbers as payment", function() {
@@ -26,8 +23,7 @@ describe("Payments", function() {
 		});
 
 		it("throws error if amount isnt more than expected payment", function() {
-			applyTax.returns(7.39);
-			payments.verifyPayment(applyTax());
+			payments.setExpectedPayment(7.39);
 			assert.throws(
 				() => payments.takePayment(5),
 				Error,
@@ -39,16 +35,13 @@ describe("Payments", function() {
 	describe(".returnChange()", function() {
 		beforeEach(function() {
 			payments = new Payments();
-			applyTax = sinon.stub(Tax.prototype, "applyTax");
 		});
 
 		afterEach(function() {
-			Tax.prototype.applyTax.restore();
 		});
 
 		it("returns the correct amount of change to give to customer", function() {
-			applyTax.returns(7.39);
-			payments.verifyPayment(applyTax());
+			payments.setExpectedPayment(7.39);
 			payments.takePayment(10);
 			expect(payments.returnChange()).to.eql(2.61);
 		});

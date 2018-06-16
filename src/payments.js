@@ -6,7 +6,7 @@
   let _changeExpected = 0;
 
 
-  Payments.prototype.verifyPayment = function(postTaxAmount) {
+  Payments.prototype.setExpectedPayment = function(postTaxAmount) {
     _expectedPayment = postTaxAmount;
     return _expectedPayment;
   };
