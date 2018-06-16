@@ -1,14 +1,16 @@
 (function(exports) {
   function Receipt(Total, Tax, Discount, Products) {
-    this.total = new Total(new Products());
-    this.tax = new Tax();
-    this.discount = new Discount();
+    this.total = Total;
+    this.tax = Tax;
+    this.discount = Discount;
+    console.log(this.total);
+    // this.products = new Products();
   }
 
   Receipt.prototype.printReceipt = function(args) {
     let self = this;
     let receiptArray = [];
-    let lineItemString
+    let lineItemString;
     // function to zip the items and price into one array
     function zip(...arrays) {
       const length = Math.min(...arrays.map(arr => arr.length));
@@ -31,8 +33,10 @@
 
     receiptArray.push(`${args.name}'s Order:`);
 
+    // zip line item and price togethr and push into receipt array
+    console.log(this.total.calculate(args));
     zip(args.items, this.total.calculateEach(args)).forEach(function(lineItem) {
-      receiptArray.push(`${lineItem[0]}: £${lineItem[1]}`) ;
+      receiptArray.push(`${lineItem[0]}: £${lineItem[1]}`);
     });
 
     let itemsTotalDiscounts = this.discount.applyDiscounts(
@@ -50,7 +54,7 @@
 
     receiptArray.push(`Total: £${itemsTotalDiscounts.toFixed(2)}`);
     discountDisplayer();
-    receiptArray.push(`Tax: £${amountToTax}`)
+    receiptArray.push(`Tax: £${amountToTax}`);
     receiptArray.push(`Total w/ Tax: £${totalWithTax.toFixed(2)}`);
 
     console.log(receiptArray);

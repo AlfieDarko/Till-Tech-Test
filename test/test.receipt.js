@@ -1,10 +1,12 @@
 /* eslint-env es6, mocha */
-
+let spy = sinon.spy();
 describe("Receipt", function() {
   let receipt;
   let returnBasket;
   let takePayment;
   let verifyPayment;
+  let calculateEach;
+
   describe(".printReceipt()", function() {
     beforeEach(function() {
       receipt = new Receipt(Total, Tax, Discount, Products);
@@ -13,8 +15,9 @@ describe("Receipt", function() {
         name: "Tom",
         items: ["Cafe Latte", "Single Espresso"]
       };
-
     });
+
+    afterEach(function() {});
 
     it("prints a receipt including the correct name of order", function() {
       expect(receipt.printReceipt(returnBasket)).to.include("Tom's Order:");
@@ -25,7 +28,9 @@ describe("Receipt", function() {
     });
 
     it("prints a receipt including the correct items ", function() {
-      expect(receipt.printReceipt(returnBasket)).to.include("Cafe Latte: £4.75");
+      expect(receipt.printReceipt(returnBasket)).to.include(
+        "Cafe Latte: £4.75"
+      );
     });
 
     it("prints a receipt not including incorrect items ", function() {
