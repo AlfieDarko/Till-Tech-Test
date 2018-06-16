@@ -32,8 +32,9 @@
 
     receiptArray.push(`${args.name}'s Order:`);
 
-    // zip line item and price togethr and push into receipt array
-    zip(args.items, total.calculateEach(args)).forEach(function(lineItem) {
+    // This zips-up item and price together and push into receipt array
+    zip(args.items, total.calculateEach(args))
+    .map(lineItem => {
       receiptArray.push(`${lineItem[0]}: £${lineItem[1]}`);
     });
 
@@ -46,7 +47,6 @@
       tax.applyTax(total.calculate(args)).toFixed(2) -
       total.calculate(args).toFixed(2)
     ).toFixed(2);
-
     let totalWithTax =
       parseFloat(itemsTotalWithoutTax) + parseFloat(amountToTax);
 
@@ -55,6 +55,9 @@
     receiptArray.push(`Tax: £${amountToTax}`);
     receiptArray.push(`Total w/ Tax: £${totalWithTax.toFixed(2)}`);
 
+
+
+    // Clean up? declare them in the order things are happening
     return receiptArray;
   };
   exports.Receipt = Receipt;
