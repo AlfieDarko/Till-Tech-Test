@@ -19,10 +19,8 @@
   };
 
   Total.prototype.calculateEach = function(args) {
-    this.total = 0;
     let lineTotal = [];
     let items = args.items;
-    let expLineTotal = []
     let self = this
 
     items
