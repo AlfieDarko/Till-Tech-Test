@@ -8,6 +8,11 @@ $(document).ready(function() {
   $("#add-name-button").click(function() {
     Buttons.addName()
   });
+
+  $("#add-to-cart-button").click(function() {
+    Buttons.addToCart()
+  });
+
   //
   // $("#add-to-cart-button").click(function() {
   //   if (customerNameFromInput == null) {

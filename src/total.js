@@ -4,17 +4,24 @@
   }
 
   Total.prototype.calculate = function(args) {
-    let total = 0;
-    let items = args.items;
-    let self = this
+    console.log(args, 'what was found inside in');
+    console.log(args.name, 'args.name');
+    console.log(args.name.items, 'args.name.items');
 
-    let Total = items
-    .reduce((newTotal, items) => {
-      if(self.products.hasOwnProperty(items)) {
+    let total = 0;
+    // let items = args.name.items;
+    let self = this
+    let newTotal = 0
+  // console.log(items, 'args.items');
+    let Total = args.items.reduce((newTotal, items) => {
+      if(this.products.hasOwnProperty(args.items)) {
+        console.log(args.items, 'itemsss');
         return newTotal += self.products[items]
       }
     }, 0)
 
+    console.log(newTotal, 'newTotal');
+  console.log(Total, 'total');
     return Total;
   };
 

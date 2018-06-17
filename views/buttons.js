@@ -1,6 +1,8 @@
+let customerNameFromInput
+
 let Buttons = {
+
   addName: function() {
-    let customerNameFromInput
     if ($("#customer-names-input").val()) {
       customerNameFromInput = $("#customer-names-input").val()
       $("#customer-names-input").prop("disabled", true);
@@ -9,6 +11,45 @@ let Buttons = {
   },
   //
   addToCart: function() {
+      if (customerNameFromInput == null) {
+        alert('Enter the customer name!')
+      } else {
+        let items = []
+        $("#items-in-dropdown option:selected").each(function(i, sel) {
+          items.push($(sel).val())
+        });
+        console.log({name: customerNameFromInput,  items}, 'look at this');
+console.log({name: customerNameFromInput, items: [...items]});
+        till.basket.addToBasket( {name:customerNameFromInput, items:[...items]})
+console.log(till.basket.returnBasket());
+        till.basket.returnBasket().items.forEach(function(item) {
+          let option = document.createElement("option")
+          option.textContent = item;
+          option.disabled = true
+          document.getElementById('cart-with-items').appendChild(option)
+        })
+
+        $("#add-to-cart-button").prop("disabled", true)
+        console.log(display.viewTotal());
+        display.viewTotal()
+      }
+    },
+
+    clearCart: function() {
+        till.basket.clearBasket()
+        $('#cart-with-items').find('option').remove().end()
+        $("#add-to-cart-button").prop("disabled", false)
+    },
+
+    payCash: function() {
+
+    },
+
+    nextOrder: function() {
+
+    }
+
+
 
 
    }
@@ -37,4 +78,3 @@ let Buttons = {
   //       $("#total-text-area").val(totalToPay)
   //     }
   //   });
-}

@@ -5,6 +5,7 @@
     this.receipt = Receipt;
   }
 
+
   Till.prototype.makePayment = function() {
     let calculatedTotal = this.receipt.total.calculate(
       this.basket.returnBasket().toFixed(2),
