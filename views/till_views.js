@@ -1,18 +1,13 @@
 $(document).ready(function() {
-  
   // let till = new Till()
   //
   // let customerNameFromInput
   // let cartItems = $('#cart-with-items')
   // console.log(cartItems);
   //
-  // $("#add-name-button").click(function() {
-  //   if ($("#customer-names-input").val()) {
-  //     customerNameFromInput = $("#customer-names-input").val()
-  //     $("#customer-names-input").prop("disabled", true);
-  //     $("#add-name-button").prop("disabled", true);
-  //   }
-  // });
+  $("#add-name-button").click(function() {
+    Buttons.addName()
+  });
   //
   // $("#add-to-cart-button").click(function() {
   //   if (customerNameFromInput == null) {

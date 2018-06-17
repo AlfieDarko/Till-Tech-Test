@@ -47,8 +47,6 @@
     let receipt = new Receipt(total, tax, discount)
 
     let till = new Till(basket, payments, receipt)
-
-    // till = new Till(new Basket(), new Payments(), new Receipt(new Total(new Products()), new Tax(), new Discount()))
   </script>
   <script>
     mocha.checkLeaks();
