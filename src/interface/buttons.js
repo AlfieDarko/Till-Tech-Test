@@ -47,23 +47,8 @@ let Buttons = {
   submitToTill: function() {
     let moneyInTillTextArea = $("#money-in-till-text-area").val();
     console.log(moneyInTillTextArea);
-
-    let totalCalc = till.receipt.total.calculate(till.basket.returnBasket());
-
     till.makePayment(moneyInTillTextArea);
-    // $("#money-in-till-text-area").val();
-    //
-    //
-    //   if (till.payments.takePayment($("#money-in-till-text-area").val())) {
-    //     $(".modal").removeClass("is-active");
-    //
-    //     let receipt = till.receipt.printReceipt(till.orders.returnBasket()[0]);
-    //
-    //     $("#receipt-text-area").val(receipt + `\n CASH: £${$("#money-in-till-text-area").val()} \n CHANGE: £${till.payments.returnChange()}`)
-    //
-    //   } else {
-    //     alert('Not enough money!')
-    //   }
+    display.printRceipt();
   },
 
   printReceipt: function() {},
