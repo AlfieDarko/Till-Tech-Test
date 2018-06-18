@@ -10,7 +10,6 @@ let display = {
       totalCalculated,
       basket
     );
-    console.log(itemsTotalDiscounts.toFixed(2));
     let itemsTotalWithoutTax = till.receipt.total.calculate(basket).toFixed(2);
     let appliedTax = till.receipt.tax.applyTax(totalCalculated).toFixed(2);
     let amountToTax = appliedTax - totalCalculated;
@@ -18,8 +17,6 @@ let display = {
     let totalWithTax =
       parseFloat(itemsTotalDiscounts.toFixed(2)) + parseFloat(amountToTax);
     $("#total-text-area").val(totalWithTax.toFixed(2));
-
-    console.log(till.receipt.printReceipt(basket));
   },
 
   printRceipt: function() {
