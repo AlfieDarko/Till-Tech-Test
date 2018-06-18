@@ -1,10 +1,10 @@
 Possible Classes
 Dependency Injection! Pass in Products into till class func
 
-Orders Class
+Basket Class
 _____________
-+ Basket = [] (Holds Orders as Arrays)
-Basket.prototype.clearOrders()
++ Basket = [] (Holds Basket as Arrays)
+Basket.prototype.clearBasket()
 Basket.prototype.addOrder(name, args)
 
 

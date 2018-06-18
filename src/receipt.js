@@ -1,58 +1,87 @@
 (function(exports) {
-  function Receipt() {
-    this.total = new Total();
-    this.tax = new Tax();
-    this.discount = new Discount();
+  function Receipt(Total, Tax, Discount, Products) {
+    this.total = Total;
+    this.tax = Tax;
+    this.discount = Discount;
+    // this.products = new Products();
   }
 
   Receipt.prototype.printReceipt = function(args) {
     let self = this;
-    let receiptString;
+    let receiptArray = [];
+    let lineItemString;
+    let totalCalculated = total.calculate(args);
 
     // function to zip the items and price into one array
     function zip(...arrays) {
       const length = Math.min(...arrays.map(arr => arr.length));
-      return Array.from({
-        length
-      }, (value, index) => arrays.map(array => array[index]));
+      return Array.from(
+        {
+          length
+        },
+        (value, index) => arrays.map(array => array[index])
+      );
     }
 
-    // function to add the discount strings onto the receiptString
-    function discountDisplayer() {
-      if (self.discount.muffinDiscountBool) {
-        receiptString += "10% Muffin Discount! \n";
-      } else if (self.discount.spendOver50DiscountBool) {
-        receiptString += "5% Off Purchases over 50 Discount! \n";
+    // function to add the discount strings onto the receiptArray
+    function discountDisplayer(args) {
+      if (
+        self.discount.returnMuffinDiscountBool(args) &&
+        self.discount.returnSpendOver50DiscountBool(totalCalculated)
+      ) {
+        receiptArray.push(
+          "10% Muffin Discount!",
+          "5% Off Purchases over 50 Discount!"
+        );
       }
     }
 
-    receiptString = `${args.name}'s Order: \n\n`;
+    // else if (self.discount.returnSpendOver50DiscountBool(totalCalculated)) {
+    //   receiptArray.push("5% Off Purchases over 50 Discount!");
+    // }
+    receiptArray.push(`${args.name}'s Order:`);
 
-    zip(args.items, this.total.calculateEach(args)).forEach(function(lineItem) {
-      receiptString += lineItem[0] + ": £" + lineItem[1] + "\n";
+    // This zips-up item and price together and push into receipt array
+    zip(args.items, total.calculateEach(args)).map(lineItem => {
+      receiptArray.push(`${lineItem[0]}: £${lineItem[1]}`);
     });
 
-    let itemsTotalDiscounts = this.discount.applyDiscounts(this.total.calculate(args), [args]);
+    let appliedDisc = discount.applyDiscounts(totalCalculated, args);
+    let itemsTotalDiscounts = discount.applyDiscounts(
+      total.calculate(args),
+      args
+    );
+    let itemsTotalWithoutTax = total.calculate(args).toFixed(2);
+    console.log(itemsTotalWithoutTax, "withouttax");
+    let amountToTax = (
+      tax.applyTax(total.calculate(args)).toFixed(2) -
+      total.calculate(args).toFixed(2)
+    ).toFixed(2);
 
-    let itemsTotalWithoutTax = this.total.calculate(args).toFixed(2);
+    let totalWithTax =
+      parseFloat(itemsTotalDiscounts) + parseFloat(amountToTax);
 
-    let amountToTax = (this.tax.applyTax(this.total.calculate(args)).toFixed(2) - this.total.calculate(args).toFixed(2)).toFixed(2);
+    // Now we add all the info to an receipts array
+    // discountDisplayer(args);
+    if (
+      discount.returnMuffinDiscountBool(args) &&
+      discount.returnSpendOver50DiscountBool(totalCalculated)
+    ) {
+      receiptArray.push(
+        "10% Muffin Discount!",
+        "5% Off Purchases over 50 Discount!"
+      );
+    }
 
-    let totalWithTax = parseFloat(itemsTotalWithoutTax) + parseFloat(amountToTax);
+    discount.resetDiscounts();
+    receiptArray.push(`Total: £${itemsTotalWithoutTax}`);
 
-    receiptString += `
-		Total: £${itemsTotalDiscounts.toFixed(2)}
-		`;
+    receiptArray.push(`Discount Rate: £${itemsTotalDiscounts.toFixed(2)}`);
+    receiptArray.push(`Tax: £${amountToTax}`);
+    receiptArray.push(`Total w/ Tax: £${totalWithTax.toFixed(2)}`);
 
-    discountDisplayer();
-
-    receiptString += `Tax: £${amountToTax}
-		`;
-    receiptString += `Total w/ Tax: £${totalWithTax.toFixed(2)}
-			`;
-
-    console.log(receiptString);
-    return receiptString;
+    // Clean up? declare them in the order things are happening
+    return receiptArray;
   };
   exports.Receipt = Receipt;
 })(this);

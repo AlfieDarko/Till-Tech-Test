@@ -1,27 +1,29 @@
 (function(exports) {
   function Payments() {
-    this.expectedPayment = 0;
-    this.changeExpected = 0;
   }
 
-  Payments.prototype.verifyPayment = function(postTaxAmount) {
-    this.expectedPayment = postTaxAmount;
-    return this.expectedPayment;
+  let _expectedPayment = 0;
+  let _changeExpected = 0;
+
+
+  Payments.prototype.setExpectedPayment = function(postTaxAmount) {
+    _expectedPayment = postTaxAmount;
+    return _expectedPayment;
   };
 
   Payments.prototype.takePayment = function(amount) {
     if (isNaN(amount)) {
       throw new Error("Not a valid number");
-    } else if (amount < this.expectedPayment) {
+    } else if (amount < _expectedPayment) {
       throw new Error("Not enough to make payment");
     } else {
-      this.changeExpected = amount - this.expectedPayment;
+      _changeExpected = amount - _expectedPayment;
       return true
     }
   };
 
   Payments.prototype.returnChange = function() {
-    return parseFloat(this.changeExpected.toFixed(2));
+    return parseFloat(_changeExpected.toFixed(2));
   };
   exports.Payments = Payments;
 })(this);
