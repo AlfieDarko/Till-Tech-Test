@@ -11,70 +11,74 @@ let Buttons = {
   },
   //
   addToCart: function() {
-      if (customerNameFromInput == null) {
-        alert('Enter the customer name!')
-      } else {
-        let items = []
-        $("#items-in-dropdown option:selected").each(function(i, sel) {
-          items.push($(sel).val())
-        });
-        console.log({name: customerNameFromInput,  items}, 'look at this');
-console.log({name: customerNameFromInput, items: [...items]});
-        till.basket.addToBasket( {name:customerNameFromInput, items:[...items]})
-console.log(till.basket.returnBasket());
-        till.basket.returnBasket().items.forEach(function(item) {
-          let option = document.createElement("option")
-          option.textContent = item;
-          option.disabled = true
-          document.getElementById('cart-with-items').appendChild(option)
-        })
+    if (customerNameFromInput == null) {
+      alert('Enter the customer name!')
+    } else {
+      let items = []
+      $("#items-in-dropdown option:selected").each(function(i, sel) {
+        items.push($(sel).val())
+      });
+      console.log({
+        name: customerNameFromInput,
+        items: [...items]
+      }, 'look at this');
 
-        $("#add-to-cart-button").prop("disabled", true)
-        console.log(display.viewTotal());
-        display.viewTotal()
+      // THE TROUBLE YOU ARE HAVING IS THAT YOU HAVE REQUIRED THE ARGUMENTS TO BE PASSED IN AS MANY PARAMETERS INSTEAD OF EXPECTING AN object
+
+      // PERHAPS REFACTOR TO ALLOW OBJECT WITHOUT TRANSFORMING RETURN INTO AN OBJECT AFTER ADDING TO BASKET
+      till.basket.addToBasket(
+        {
+        name: customerNameFromInput,
+        items: [...items]
       }
-    },
+    )
+      console.log(till.basket.returnBasket());
+      till.basket.returnBasket().items.forEach(function(item) {
+        let option = document.createElement("option")
+        option.textContent = item;
+        option.disabled = true
+        document.getElementById('cart-with-items').appendChild(option)
+      })
 
-    clearCart: function() {
-        till.basket.clearBasket()
-        $('#cart-with-items').find('option').remove().end()
-        $("#add-to-cart-button").prop("disabled", false)
-    },
-
-    payCash: function() {
-
-    },
-
-    nextOrder: function() {
-
+      $("#add-to-cart-button").prop("disabled", true)
+      console.log(display.viewTotal());
+      display.viewTotal()
     }
+  },
 
+  clearCart: function() {
+    till.basket.clearBasket()
+    $('#cart-with-items').find('option').remove().end()
+    $("#add-to-cart-button").prop("disabled", false)
+  },
 
+  payCash: function() {},
 
+  nextOrder: function() {}
 
-   }
+}
 
-  //   $("#add-to-cart-button").click(function() {
-  //     if (customerNameFromInput == null) {
-  //       alert('Enter the customer name!')
-  //     } else {
-  //       let itemsArray = []
-  //       $("#items-in-dropdown option:selected").each(function(i, sel) {
-  //         itemsArray.push($(sel).val())
-  //       });
-  //       till.orders.basket.push({name: customerNameFromInput, items: itemsArray})
-  //
-  //       till.orders.returnBasket()[0].items.forEach(function(item) {
-  //         let option = document.createElement("option")
-  //         option.textContent = item;
-  //         option.disabled = true
-  //         document.getElementById('cart-with-items').appendChild(option)
-  //       })
-  //
-  //       $("#add-to-cart-button").prop("disabled", true)
-  //
-  //       let totalToPay = till.tax.applyTax(till.discount.applyDiscounts(till.total.calculate(till.orders.returnBasket()[0]).toFixed(2), till.orders.returnBasket([0])))
-  //
-  //       $("#total-text-area").val(totalToPay)
-  //     }
-  //   });
+//   $("#add-to-cart-button").click(function() {
+//     if (customerNameFromInput == null) {
+//       alert('Enter the customer name!')
+//     } else {
+//       let itemsArray = []
+//       $("#items-in-dropdown option:selected").each(function(i, sel) {
+//         itemsArray.push($(sel).val())
+//       });
+//       till.orders.basket.push({name: customerNameFromInput, items: itemsArray})
+//
+//       till.orders.returnBasket()[0].items.forEach(function(item) {
+//         let option = document.createElement("option")
+//         option.textContent = item;
+//         option.disabled = true
+//         document.getElementById('cart-with-items').appendChild(option)
+//       })
+//
+//       $("#add-to-cart-button").prop("disabled", true)
+//
+//       let totalToPay = till.tax.applyTax(till.discount.applyDiscounts(till.total.calculate(till.orders.returnBasket()[0]).toFixed(2), till.orders.returnBasket([0])))
+//
+//       $("#total-text-area").val(totalToPay)
+//     }
+//   });

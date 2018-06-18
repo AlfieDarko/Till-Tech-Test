@@ -9,18 +9,18 @@
     console.log(args.name.items, 'args.name.items');
 
     let total = 0;
-    // let items = args.name.items;
+    let items = args.name.items;
     let self = this
     let newTotal = 0
-  // console.log(items, 'args.items');
+  console.log(items, 'args.items');
     let Total = args.items.reduce((newTotal, items) => {
-      if(this.products.hasOwnProperty(args.items)) {
-        console.log(args.items, 'itemsss');
+      if(this.products.hasOwnProperty(items)) {
+        console.log(items, 'itemsss');
         return newTotal += self.products[items]
       }
     }, 0)
 
-    console.log(newTotal, 'newTotal');
+    console.log(newTotal);
   console.log(Total, 'total');
     return Total;
   };
