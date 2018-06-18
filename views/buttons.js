@@ -30,7 +30,6 @@ let Buttons = {
       });
 
       $("#add-to-cart-button").prop("disabled", true);
-      // console.log(display.viewTotal());
       display.viewTotal();
     }
   },
@@ -42,13 +41,39 @@ let Buttons = {
       .remove()
       .end();
     $("#add-to-cart-button").prop("disabled", false);
+    $("#total-text-area").val(0);
   },
 
-  payCash: function() {},
+  submitToTill: function() {
+    let moneyInTillTextArea = $("#money-in-till-text-area").val();
+    console.log(moneyInTillTextArea);
+
+    let totalCalc = till.receipt.total.calculate(till.basket.returnBasket());
+
+    till.makePayment(moneyInTillTextArea);
+    // $("#money-in-till-text-area").val();
+    //
+    //
+    //   if (till.payments.takePayment($("#money-in-till-text-area").val())) {
+    //     $(".modal").removeClass("is-active");
+    //
+    //     let receipt = till.receipt.printReceipt(till.orders.returnBasket()[0]);
+    //
+    //     $("#receipt-text-area").val(receipt + `\n CASH: £${$("#money-in-till-text-area").val()} \n CHANGE: £${till.payments.returnChange()}`)
+    //
+    //   } else {
+    //     alert('Not enough money!')
+    //   }
+  },
+
+  printReceipt: function() {},
+
+  cancelPayment: function() {
+    $(".modal").removeClass("is-active");
+  },
 
   nextOrder: function() {}
 };
-
 //   $("#add-to-cart-button").click(function() {
 //     if (customerNameFromInput == null) {
 //       alert('Enter the customer name!')

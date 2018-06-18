@@ -16,6 +16,7 @@
   };
 
   Basket.prototype.addToBasket = function(order) {
+    console.log([order], "whats going in basket");
     _basket.push(order);
   };
 

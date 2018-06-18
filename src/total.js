@@ -4,6 +4,7 @@
   }
 
   Total.prototype.calculate = function(args) {
+    console.log(args, "calculate args whats inside i cant see");
     let total = 0;
     let self = this;
     let newTotal = 0;

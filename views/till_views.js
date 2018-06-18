@@ -6,11 +6,31 @@ $(document).ready(function() {
   // console.log(cartItems);
   //
   $("#add-name-button").click(function() {
-    Buttons.addName()
+    Buttons.addName();
   });
 
   $("#add-to-cart-button").click(function() {
-    Buttons.addToCart()
+    Buttons.addToCart();
+  });
+
+  $("#clear-cart-button").click(function() {
+    Buttons.clearCart();
+  });
+
+  $("#pay-button").click(function() {
+    $(".modal").addClass("is-active");
+  });
+
+  $("#submit-to-till-button").click(function() {
+    Buttons.submitToTill();
+  });
+
+  $("#cancel-submit-button").click(function() {
+    Buttons.cancelPayment();
+  });
+
+  $(".delete").click(function() {
+    $(".modal").removeClass("is-active");
   });
 
   //
@@ -73,5 +93,4 @@ $(document).ready(function() {
   //     alert('Not enough money!')
   //   }
   // })
-
-})
+});

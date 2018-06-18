@@ -1,22 +1,25 @@
 (function(exports) {
-  function Discount() {
-  }
+  function Discount() {}
 
   Discount.prototype.applyDiscounts = function(total, returnBasket) {
-    let destructuredBasket = returnBasket[0]
-    let inputTotal = total
-    let muffinDiscountBool = false
-    let spendOver50DiscountBool = false
+    console.log(returnBasket, returnBasket.items, "returnBasket.items");
+    let destructuredBasket = returnBasket.items;
+    console.log(returnBasket, "returnBasket from the test");
+    let inputTotal = total;
+    let muffinDiscountBool = false;
+    let spendOver50DiscountBool = false;
     let discountRate = 0;
     let discountedTotal = 0;
     discountedTotal = total;
 
-    returnBasket.forEach(function(element) {
-      if (element.items.includes("Blueberry Muffin") ||
-          element.items.includes("Chocolate Chip Muffin") ||
-          element.items.includes("Muffin Of The Day")) {
-            muffinDiscountBool = true;
-          }
+    destructuredBasket.forEach(function(element) {
+      if (
+        element.includes("Blueberry Muffin") ||
+        element.includes("Chocolate Chip Muffin") ||
+        element.includes("Muffin Of The Day")
+      ) {
+        muffinDiscountBool = true;
+      }
     });
 
     if (total > 50) {
@@ -25,7 +28,7 @@
     }
 
     if (muffinDiscountBool) {
-      discountRate += 10
+      discountRate += 10;
     }
 
     discountedTotal = inputTotal -= (total / 100) * discountRate;

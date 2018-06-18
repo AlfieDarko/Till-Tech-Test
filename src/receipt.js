@@ -7,6 +7,7 @@
   }
 
   Receipt.prototype.printReceipt = function(args) {
+    console.log(args, "printReceipt args");
     let self = this;
     let receiptArray = [];
     let lineItemString;
@@ -33,29 +34,31 @@
     receiptArray.push(`${args.name}'s Order:`);
 
     // This zips-up item and price together and push into receipt array
-    zip(args.items, total.calculateEach(args))
-    .map(lineItem => {
+    zip(args.items, total.calculateEach(args)).map(lineItem => {
       receiptArray.push(`${lineItem[0]}: £${lineItem[1]}`);
     });
 
+    let totalCalculated = total.calculate(args);
+    let appliedDisc = discount.applyDiscounts(totalCalculated, args);
     let itemsTotalDiscounts = discount.applyDiscounts(
       total.calculate(args),
-      [args]
+      args
     );
     let itemsTotalWithoutTax = total.calculate(args).toFixed(2);
+
     let amountToTax = (
       tax.applyTax(total.calculate(args)).toFixed(2) -
       total.calculate(args).toFixed(2)
     ).toFixed(2);
+
     let totalWithTax =
       parseFloat(itemsTotalWithoutTax) + parseFloat(amountToTax);
 
+    // Now we add all the info to an receipts array
     receiptArray.push(`Total: £${itemsTotalDiscounts.toFixed(2)}`);
     discountDisplayer();
     receiptArray.push(`Tax: £${amountToTax}`);
     receiptArray.push(`Total w/ Tax: £${totalWithTax.toFixed(2)}`);
-
-
 
     // Clean up? declare them in the order things are happening
     return receiptArray;
