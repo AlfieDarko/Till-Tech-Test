@@ -73,7 +73,7 @@
       );
     }
 
-    discount.resetBools();
+    discount.resetDiscounts();
     receiptArray.push(`Total: £${itemsTotalWithoutTax}`);
 
     receiptArray.push(`Discount Rate: £${itemsTotalDiscounts.toFixed(2)}`);

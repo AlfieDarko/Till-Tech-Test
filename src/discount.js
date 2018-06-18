@@ -12,7 +12,6 @@
     // let spendOver50DiscountBool;
     let discountedTotal = 0;
     discountedTotal = total;
-    this.resetBools();
     // I am abstracting the discount bits into two things, the first will check for muffins and adjust discouunt discountRate
     //  the second will check for total and adjust discount rate, finally we will then apply discounts.
     // then we can do the check for discount bools if so then push discount marker to array
