@@ -1,10 +1,4 @@
 $(document).ready(function() {
-  // let till = new Till()
-  //
-  // let customerNameFromInput
-  // let cartItems = $('#cart-with-items')
-  // console.log(cartItems);
-  //
   $("#add-name-button").click(function() {
     Buttons.addName();
   });
