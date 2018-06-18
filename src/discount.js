@@ -16,7 +16,7 @@
     // I am abstracting the discount bits into two things, the first will check for muffins and adjust discouunt discountRate
     //  the second will check for total and adjust discount rate, finally we will then apply discounts.
     // then we can do the check for discount bools if so then push discount marker to array
-    this.resetBools();
+    this.resetDiscounts();
     this.returnMuffinDiscountBool(returnBasket);
     this.returnSpendOver50DiscountBool(total);
 
@@ -56,7 +56,7 @@
     return spendOver50DiscountBool;
   };
 
-  Discount.prototype.resetBools = function() {
+  Discount.prototype.resetDiscounts = function() {
     spendOver50DiscountBool = false;
     muffinDiscountBool = false;
     discountRate = 0;
