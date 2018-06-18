@@ -25,8 +25,8 @@
     let self = this;
 
     items.reduce((newLineTotal, items) => {
-      if (self.products.hasOwnProperty(items)) {
-        lineTotal.push(self.products[items]);
+      if (self.products.listProducts().hasOwnProperty(items)) {
+        lineTotal.push(self.products.listProducts()[items]);
       }
     }, []);
 
