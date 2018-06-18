@@ -10,8 +10,6 @@
 
     let Total = args.items.reduce((newTotal, items) => {
       if (self.products.listProducts().hasOwnProperty(items)) {
-        console.log(items, "itemsss");
-        console.log(self.products.listProducts(), "self products");
         return (newTotal += self.products.listProducts()[items]);
       }
     }, 0);
