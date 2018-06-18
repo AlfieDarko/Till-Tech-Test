@@ -4,37 +4,31 @@
   }
 
   Total.prototype.calculate = function(args) {
-    console.log(args, 'what was found inside in');
-    console.log(args.name, 'args.name');
-    console.log(args.name.items, 'args.name.items');
-
     let total = 0;
-    let items = args.name.items;
-    let self = this
-    let newTotal = 0
-  console.log(items, 'args.items');
-    let Total = args.items.reduce((newTotal, items) => {
-      if(this.products.hasOwnProperty(items)) {
-        console.log(items, 'itemsss');
-        return newTotal += self.products[items]
-      }
-    }, 0)
+    let self = this;
+    let newTotal = 0;
 
-    console.log(newTotal);
-  console.log(Total, 'total');
+    let Total = args.items.reduce((newTotal, items) => {
+      if (self.products.listProducts().hasOwnProperty(items)) {
+        console.log(items, "itemsss");
+        console.log(self.products.listProducts(), "self products");
+        return (newTotal += self.products.listProducts()[items]);
+      }
+    }, 0);
+
     return Total;
   };
 
   Total.prototype.calculateEach = function(args) {
     let lineTotal = [];
     let items = args.items;
-    let self = this
+    let self = this;
 
-    items
-    .reduce((newLineTotal, items) => {
+    items.reduce((newLineTotal, items) => {
       if (self.products.hasOwnProperty(items)) {
         lineTotal.push(self.products[items]);
-    }},[])
+      }
+    }, []);
 
     return lineTotal;
   };

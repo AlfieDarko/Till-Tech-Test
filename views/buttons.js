@@ -1,10 +1,9 @@
-let customerNameFromInput
+let customerNameFromInput;
 
 let Buttons = {
-
   addName: function() {
     if ($("#customer-names-input").val()) {
-      customerNameFromInput = $("#customer-names-input").val()
+      customerNameFromInput = $("#customer-names-input").val();
       $("#customer-names-input").prop("disabled", true);
       $("#add-name-button").prop("disabled", true);
     }
@@ -12,51 +11,51 @@ let Buttons = {
   //
   addToCart: function() {
     if (customerNameFromInput == null) {
-      alert('Enter the customer name!')
+      alert("Enter the customer name!");
     } else {
-      let items = []
+      let items = [];
       $("#items-in-dropdown option:selected").each(function(i, sel) {
-        items.push($(sel).val())
+        items.push($(sel).val());
       });
-      console.log({
-        name: customerNameFromInput,
-        items: [...items]
-      }, 'look at this');
-
-      // THE TROUBLE YOU ARE HAVING IS THAT YOU HAVE REQUIRED THE ARGUMENTS TO BE PASSED IN AS MANY PARAMETERS INSTEAD OF EXPECTING AN object
-
-      // PERHAPS REFACTOR TO ALLOW OBJECT WITHOUT TRANSFORMING RETURN INTO AN OBJECT AFTER ADDING TO BASKET
-      till.basket.addToBasket(
+      console.log(
         {
+          name: customerNameFromInput,
+          items: [...items]
+        },
+        "look at this"
+      );
+
+      till.basket.addToBasket({
         name: customerNameFromInput,
         items: [...items]
-      }
-    )
-      console.log(till.basket.returnBasket());
+      });
+      console.log(till.basket.returnBasket(), "basket return");
       till.basket.returnBasket().items.forEach(function(item) {
-        let option = document.createElement("option")
+        let option = document.createElement("option");
         option.textContent = item;
-        option.disabled = true
-        document.getElementById('cart-with-items').appendChild(option)
-      })
+        option.disabled = true;
+        document.getElementById("cart-with-items").appendChild(option);
+      });
 
-      $("#add-to-cart-button").prop("disabled", true)
-      console.log(display.viewTotal());
-      display.viewTotal()
+      $("#add-to-cart-button").prop("disabled", true);
+      // console.log(display.viewTotal());
+      display.viewTotal();
     }
   },
 
   clearCart: function() {
-    till.basket.clearBasket()
-    $('#cart-with-items').find('option').remove().end()
-    $("#add-to-cart-button").prop("disabled", false)
+    till.basket.clearBasket();
+    $("#cart-with-items")
+      .find("option")
+      .remove()
+      .end();
+    $("#add-to-cart-button").prop("disabled", false);
   },
 
   payCash: function() {},
 
   nextOrder: function() {}
-
-}
+};
 
 //   $("#add-to-cart-button").click(function() {
 //     if (customerNameFromInput == null) {

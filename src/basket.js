@@ -16,22 +16,7 @@
   };
 
   Basket.prototype.addToBasket = function(order) {
-    // takes a name, and take a food item
-    // TO FIX BUG, JUST ACCEPT OBJECT AS IT IS AND PUSH INTO BASKET!!
-
-    // so we can extend the scope of this inside of internal functions
-    // let self = this;
-
-    // so we can skip the name in the arguments and push the food into an array
-    // let args = Array.from(arguments)
-    // .slice(1)
-
-    // Now ww will create an newOrder object with our items and name
-    // let newOrder = {
-    //   name,
-    //   items: [...args]
-    // };
-
+    console.log(order, "order");
     _basket.push(order);
   };
 
