@@ -1,2 +1,7 @@
 /* eslint-env es6, mocha */
-describe("Till", function() {});
+describe("Till", function() {
+  describe('.makePayment()', () => {
+
+  });
+
+});

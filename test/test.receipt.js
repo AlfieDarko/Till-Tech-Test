@@ -1,61 +1,70 @@
 /* eslint-env es6, mocha */
-
+let spy = sinon.spy();
 describe("Receipt", function() {
-	let receipt;
-	let showBasket;
-	let takePayment;
-	let verifyPayment;
+  let receipt;
+  let returnBasket;
+  let takePayment;
+  let verifyPayment;
+  let calculateEach;
+  let totalStub;
+  let productsStub;
 
-	describe(".printReceipt()", function() {
-		beforeEach(function() {
-			receipt = new Receipt();
-			showBasket = sinon.stub(Orders.prototype, "showBasket");
+  let totalMock;
+  let productsMock;
+  describe(".printReceipt()", function() {
+    beforeEach(function() {
+      sinon.stub(Total.prototype, "calculate").callsFake(() => 6.8);
+      sinon
+        .stub(Total.prototype, "calculateEach")
+        .callsFake(() => [4.75, 2.05]);
 
-			showBasket.returns({
-				name: "Tom",
-				items: ["Cafe Latte", "Single Espresso"]
-			});
+      receipt = new Receipt(Total, Tax, Discount, Products);
 
-			verifyPayment = sinon.stub(Payments.prototype, "verifyPayment");
-			takePayment = sinon.stub(Payments.prototype, "takePayment");
-		});
+      returnBasket = {
+        name: "Tom",
+        items: ["Cafe Latte", "Single Espresso"]
+      };
+    });
 
-		afterEach(function() {
-			Orders.prototype.showBasket.restore();
-			Payments.prototype.verifyPayment.restore();
-			Payments.prototype.takePayment.restore();
-		});
+    afterEach(function() {
+      Total.prototype.calculate.restore();
+      Total.prototype.calculateEach.restore();
+    });
 
-		it("prints a receipt including the correct name of order", function() {
-			expect(receipt.printReceipt(showBasket())).to.include("Tom");
-		});
+    it("prints a receipt including the correct name of order", function() {
+      expect(receipt.printReceipt(returnBasket)).to.include("Tom's Order:");
+    });
 
-		it("prints a receipt including the correct price of order", function() {
-			expect(receipt.printReceipt(showBasket())).to.include("Total: 6.80");
-		});
+    it("prints a receipt including the correct price of order", function() {
+      expect(receipt.printReceipt(returnBasket)).to.include("Total: £6.80");
+    });
 
-		it("prints a receipt including the correct items ", function() {
-			expect(receipt.printReceipt(showBasket())).to.include("Cafe Latte");
-		});
+    it("prints a receipt including the correct items ", function() {
+      expect(receipt.printReceipt(returnBasket)).to.include(
+        "Cafe Latte: £4.75"
+      );
+    });
 
-		it("prints a receipt not including incorrect items ", function() {
-			expect(receipt.printReceipt(showBasket())).to.not.include("Banana");
-		});
+    it("prints a receipt not including incorrect items ", function() {
+      expect(receipt.printReceipt(returnBasket)).to.not.include("Banana");
+    });
 
-		it("includes single cost of line item Cafe Latte", function() {
-			expect(receipt.printReceipt(showBasket())).to.include("Cafe Latte: 4.75");
-		});
+    it("includes single cost of line item Cafe Latte", function() {
+      expect(receipt.printReceipt(returnBasket)).to.include(
+        "Cafe Latte: £4.75"
+      );
+    });
 
-		it("includes single cost of line item Single Expresso", function() {
-			expect(receipt.printReceipt(showBasket())).to.include(
-				"Single Espresso: 2.05"
-			);
-		});
+    it("includes single cost of line item Single Expresso", function() {
+      expect(receipt.printReceipt(returnBasket)).to.include(
+        "Single Espresso: £2.05"
+      );
+    });
 
-		it("includes total with the Taxrate applied", function() {
-			expect(receipt.printReceipt(showBasket())).to.include(
-				"Total w/ Tax: 7.39"
-			);
-		});
-	});
+    it("includes total with the Taxrate applied", function() {
+      expect(receipt.printReceipt(returnBasket)).to.include(
+        "Total w/ Tax: £7.39"
+      );
+    });
+  });
 });
