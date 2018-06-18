@@ -17,19 +17,11 @@ let Buttons = {
       $("#items-in-dropdown option:selected").each(function(i, sel) {
         items.push($(sel).val());
       });
-      console.log(
-        {
-          name: customerNameFromInput,
-          items: [...items]
-        },
-        "look at this"
-      );
 
       till.basket.addToBasket({
         name: customerNameFromInput,
         items: [...items]
       });
-      console.log(till.basket.returnBasket(), "basket return");
       till.basket.returnBasket().items.forEach(function(item) {
         let option = document.createElement("option");
         option.textContent = item;
