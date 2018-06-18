@@ -17,6 +17,7 @@
 
   Basket.prototype.addToBasket = function(name, food) {
     // takes a name, and take a food item
+    // TO FIX BUG, JUST ACCEPT OBJECT AS IT IS AND PUSH INTO BASKET!!
 
     // so we can extend the scope of this inside of internal functions
     let self = this;
