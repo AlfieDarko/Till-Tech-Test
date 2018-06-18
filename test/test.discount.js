@@ -24,7 +24,6 @@ describe("Discount", function() {
           "Double Espresso"
         ]
       };
-      console.log(returnBasket);
       expect(discount.applyDiscounts(100, returnBasket)).to.eql(95);
     });
 

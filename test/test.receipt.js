@@ -32,7 +32,6 @@ describe("Receipt", function() {
     });
 
     it("prints a receipt including the correct name of order", function() {
-      console.log(returnBasket, "basket in !!!!!!!!!!!!!!!!!!! tests");
       expect(receipt.printReceipt(returnBasket)).to.include("Tom's Order:");
     });
 

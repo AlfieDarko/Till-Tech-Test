@@ -2,9 +2,7 @@
   function Discount() {}
 
   Discount.prototype.applyDiscounts = function(total, returnBasket) {
-    console.log(returnBasket, returnBasket.items, "returnBasket.items");
     let destructuredBasket = returnBasket.items;
-    console.log(returnBasket, "returnBasket from the test");
     let inputTotal = total;
     let muffinDiscountBool = false;
     let spendOver50DiscountBool = false;

@@ -7,7 +7,6 @@
   }
 
   Receipt.prototype.printReceipt = function(args) {
-    console.log(args, "printReceipt args");
     let self = this;
     let receiptArray = [];
     let lineItemString;
