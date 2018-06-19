@@ -6,59 +6,18 @@
       this.discount = Discount;
       // this.products = new Products();
     }
-    printReceipt(args) {
-      let self = this;
-      let receiptArray = [];
-      let lineItemString;
-      let totalCalculated = total.calculate(args);
-      // function to zip the items and price into one array
-      function zip(...arrays) {
-        const length = Math.min(...arrays.map(arr => arr.length));
-        return Array.from(
-          {
-            length
-          },
-          (value, index) => arrays.map(array => array[index])
-        );
-      }
-      // function to add the discount strings onto the receiptArray
-      function discountDisplayer(args) {
-        if (
-          self.discount.returnMuffinDiscountBool(args) &&
-          self.discount.returnSpendOver50DiscountBool(totalCalculated)
-        ) {
-          receiptArray.push(
-            "10% Muffin Discount!",
-            "5% Off Purchases over 50 Discount!"
-          );
-        }
-      }
-      // Is this function finished properly?
 
-      // else if (self.discount.returnSpendOver50DiscountBool(totalCalculated)) {
-      //   receiptArray.push("5% Off Purchases over 50 Discount!");
-      // }
-
-      receiptArray.push(`${args.name}'s Order:`);
-      // This zips-up item and price together and push into receipt array
-      zip(args.items, total.calculateEach(args)).map(lineItem => {
-        receiptArray.push(`${lineItem[0]}: £${lineItem[1]}`);
-      });
-      let appliedDisc = discount.applyDiscounts(totalCalculated, args);
-      let itemsTotalDiscounts = discount.applyDiscounts(
-        total.calculate(args),
-        args
+    zipItemsAndPrices(...arrays) {
+      const length = Math.min(...arrays.map(arr => arr.length));
+      return Array.from(
+        {
+          length
+        },
+        (value, index) => arrays.map(array => array[index])
       );
-      let itemsTotalWithoutTax = total.calculate(args).toFixed(2);
-      console.log(itemsTotalWithoutTax, "withouttax");
-      let amountToTax = (
-        tax.applyTax(total.calculate(args)).toFixed(2) -
-        total.calculate(args).toFixed(2)
-      ).toFixed(2);
-      let totalWithTax =
-        parseFloat(itemsTotalDiscounts) + parseFloat(amountToTax);
-      // Now we add all the info to an receipts array
-      // discountDisplayer(args);
+    }
+
+    addDiscountAlertOnReceipt(args, totalCalculated) {
       if (
         discount.returnMuffinDiscountBool(args) &&
         discount.returnSpendOver50DiscountBool(totalCalculated)
@@ -72,21 +31,47 @@
       } else if (discount.returnSpendOver50DiscountBool(totalCalculated)) {
         receiptArray.push("5% Off Purchases over 50 Discount!");
       }
+    }
 
+    printReceipt(args) {
+      let self = this;
+      let lineItemString;
+      let totalCalculated = total.calculate(args);
+      let preTotal = total.calculate(args).toFixed(2);
+      let preTotalWithDiscounts = discount.applyDiscounts(preTotal, args);
+
+      receiptArray.push(`${args.name}'s Order:`);
+
+      // This zips-up item and price together and push into receipt array
+      this.zipItemsAndPrices(args.items, total.calculateEach(args)).map(
+        lineItem => {
+          receiptArray.push(`${lineItem[0]}: £${lineItem[1]}`);
+        }
+      );
+
+      // console.log(preTotal, "withouttax");
+      let amountToTax = (
+        tax.applyTax(total.calculate(args)).toFixed(2) - preTotal
+      ).toFixed(2);
+
+      let totalWithTax =
+        parseFloat(preTotalWithDiscounts) + parseFloat(amountToTax);
+
+      // Now we add all the info to an receipts array
+      this.addDiscountAlertOnReceipt(args, preTotal);
       discount.resetDiscounts();
       receiptArray.push(
-        `Total: £${itemsTotalWithoutTax}`,
-        `Discount Price: £${itemsTotalDiscounts.toFixed(2)}`,
+        `Total: £${preTotal}`,
+        `Discount Price: £${preTotalWithDiscounts.toFixed(2)}`,
         `Tax: £${amountToTax}`,
         `Total w/ Tax: £${totalWithTax.toFixed(2)}`
       );
-      // receiptArray.push(`Discount Rate: £${itemsTotalDiscounts.toFixed(2)}`);
-      // receiptArray.push(`Tax: £${amountToTax}`);
-      // receiptArray.push(`Total w/ Tax: £${totalWithTax.toFixed(2)}`);
-      // Clean up? declare them in the order things are happening
+
       return receiptArray;
     }
   }
+
+  let receiptArray = [];
 
   exports.Receipt = Receipt;
 })(this);

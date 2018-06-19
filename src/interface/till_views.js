@@ -1,14 +1,14 @@
 $(document).ready(function() {
   $("#add-name-button").click(function() {
-    Buttons.addName();
+    buttons.addName();
   });
 
   $("#add-to-cart-button").click(function() {
-    Buttons.addToCart();
+    buttons.addToCart();
   });
 
   $("#clear-cart-button").click(function() {
-    Buttons.clearCart();
+    buttons.clearCart();
   });
 
   $("#pay-button").click(function() {
@@ -16,11 +16,11 @@ $(document).ready(function() {
   });
 
   $("#submit-to-till-button").click(function() {
-    Buttons.submitToTill();
+    buttons.submitToTill();
   });
 
   $("#cancel-submit-button").click(function() {
-    Buttons.cancelPayment();
+    buttons.cancelPayment();
   });
 
   $(".delete").click(function() {
