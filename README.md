@@ -100,6 +100,7 @@ Extras
 
 Actual Class Diagram <br>
 ![Final Diagram](https://github.com/AlfieDarko/Till-Tech-Test/blob/master/finaldiagram.jpg?raw=true)
+
 ## Technology Used
 
 Javascript, JQuery <br>
@@ -109,7 +110,7 @@ CSS: Bulma CSS
 
 ## Installation
 
-Git clone the repo into your documents and go to the views folder and open index.html in your favourite browser
+Git clone the repo into your documents and from the root folder, open index.html in your favourite browser
 
 ## Usage Example
 
@@ -122,27 +123,24 @@ Till interface:
 
 ![Enter customer name](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.32.22.png)
 
-2. Select items in the item list and then add to cart when complete!<br>
+2.  Select items in the item list and then add to cart when complete!<br>
 
 ![add to cart](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.32.27.png)<br>
 
-
-3. When the items are added, they will show up on the cart list. You can clear the cart and start again if you make a mistake.<br>
+3.  When the items are added, they will show up on the cart list. You can clear the cart and start again if you make a mistake.<br>
 
 ![add to cart2](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.32.44.png)<br>
 
-
-4. After adding items to the cart, the total amount is displayed on the till display screen. We can now take cash payments to pay for the customers purchase. Press the Pay Now button<br>
+4.  After adding items to the cart, the total amount is displayed on the till display screen. We can now take cash payments to pay for the customers purchase. Press the Pay Now button<br>
 
 ![till display](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.33.09.png)
 <br>
 
-5. We can now enter the amount the customer wants to pay.<br>
+5.  We can now enter the amount the customer wants to pay.<br>
 
 ![pay by cash](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.33.23.png)<br>
 
-
-6. If you have paid enough, a printout of the customers items, with the line totals, pre and post tax totals, along with any discounts they may have received depending on their spending or items. You will also see the amount given and a calculation of the exact change.<br>
+6.  If you have paid enough, a printout of the customers items, with the line totals, pre and post tax totals, along with any discounts they may have received depending on their spending or items. You will also see the amount given and a calculation of the exact change.<br>
 
 ![receipt](https://raw.githubusercontent.com/AlfieDarko/Till-Tech-Test/master/readme_imgs/Screen%20Shot%202018-06-08%20at%2017.33.32.png)<br>
 
@@ -158,9 +156,10 @@ I initially planned only a few classes but as I was developing the application, 
 
 Using TDD helped me stay on this modular Approach.
 
-I also used IIFE classes as a way of encapsulating functions so that it would be hard to manipulate things using the web console. I used the prototype pattern instead of the  ES6 class syntax just to get a further understanding of what was going on under the hood of this.
+I also used IIFE classes as a way of encapsulating functions so that it would be hard to manipulate things using the web console. I used the prototype pattern instead of the ES6 class syntax just to get a further understanding of what was going on under the hood of this.
 
 ## TODO
+
 What I would have liked to implement if I had more time.
 
 - Function that adds an extra zero to float numbers like '6.4' so it can represent '6.40'
@@ -182,7 +181,6 @@ I tried not to leave comments to explain the obvious parts of the code but I fee
 I would have liked to go through the code more thoroughly to DRY the codebase .
 
 I would have also set up my linting tools at the very beginning.
-
 
 ## Meta
 
