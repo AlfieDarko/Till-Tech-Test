@@ -1929,7 +1929,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+calculateEach()",
+											"text": "+calculateLinePrice()",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -11405,7 +11405,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFj4TXgaQx/S/c="
 							},
-							"name": "calculateEach",
+							"name": "calculateLinePrice",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,

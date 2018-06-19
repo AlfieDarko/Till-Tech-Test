@@ -43,7 +43,7 @@
       receiptArray.push(`${args.name}'s Order:`);
 
       // This zips-up item and price together and push into receipt array
-      this.zipItemsAndPrices(args.items, total.calculateEach(args)).map(
+      this.zipItemsAndPrices(args.items, total.calculateLinePrice(args)).map(
         lineItem => {
           receiptArray.push(`${lineItem[0]}: £${lineItem[1]}`);
         }

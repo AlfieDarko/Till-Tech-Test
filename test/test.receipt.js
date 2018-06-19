@@ -5,7 +5,7 @@ describe("Receipt", function() {
   let returnBasket;
   let takePayment;
   let verifyPayment;
-  let calculateEach;
+  let calculateLinePrice;
   let totalStub;
   let productsStub;
 
@@ -15,7 +15,7 @@ describe("Receipt", function() {
     beforeEach(function() {
       sinon.stub(Total.prototype, "calculate").callsFake(() => 6.8);
       sinon
-        .stub(Total.prototype, "calculateEach")
+        .stub(Total.prototype, "calculateLinePrice")
         .callsFake(() => [4.75, 2.05]);
 
       receipt = new Receipt(Total, Tax, Discount, Products);
@@ -28,7 +28,7 @@ describe("Receipt", function() {
 
     afterEach(function() {
       Total.prototype.calculate.restore();
-      Total.prototype.calculateEach.restore();
+      Total.prototype.calculateLinePrice.restore();
     });
 
     it("prints a receipt including the correct name of order", function() {

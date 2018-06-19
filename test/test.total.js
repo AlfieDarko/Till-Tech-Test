@@ -47,13 +47,13 @@ describe("Total", function() {
       expect(total.calculate(basket)).to.eql(6.8);
     });
 
-    describe("calculateEach()", function() {
+    describe("calculateLinePrice()", function() {
       it("calculates and returns an array of singular item prices", function() {
         let basket = {
           name: "Tom",
           items: ["Cafe Latte", "Single Espresso"]
         };
-        expect(total.calculateEach(basket)).to.eql([4.75, 2.05]);
+        expect(total.calculateLinePrice(basket)).to.eql([4.75, 2.05]);
       });
     });
   });

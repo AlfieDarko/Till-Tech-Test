@@ -14,7 +14,7 @@
       }, 0);
       return Total;
     }
-    calculateEach(args) {
+    calculateLinePrice(args) {
       let lineTotal = [];
       let items = args.items;
       let self = this;
