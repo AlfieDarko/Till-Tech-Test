@@ -156,7 +156,7 @@ I initially planned only a few classes but as I was developing the application, 
 
 Using TDD helped me stay on this modular Approach.
 
-I also used IIFE classes as a way of encapsulating functions so that it would be hard to manipulate things using the web console. I used the prototype pattern instead of the ES6 class syntax just to get a further understanding of what was going on under the hood of this.
+I also used IIFE classes as a way of encapsulating functions so that it would be hard to manipulate things using the web console. I used the prototype pattern at first to gain a deeper understanding of how ES6 classes really work under the hood and then converted the codebase to ES6 classes afterwards.
 
 ## TODO
 
