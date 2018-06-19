@@ -1,42 +1,33 @@
-let display = {
-  viewTotal: function() {
-    // clean up! you have multiple variable declarations that hold
-    // the same values
-    let basket = till.basket.returnBasket();
+(function(exports) {
+  class Display {
+    constructor() {}
 
-    let totalCalculated = till.receipt.total.calculate(basket);
+    viewTotal() {
+      let basket = till.basket.returnBasket();
+      let preTotal = till.receipt.total.calculate(basket);
+      let preTotalWithDiscounts = till.receipt.discount.applyDiscounts(
+        preTotal,
+        basket
+      );
+      let appliedTax = till.receipt.tax.applyTax(preTotal).toFixed(2);
+      let amountToTax = appliedTax - preTotal;
 
-    let appliedDisc = till.receipt.discount.applyDiscounts(
-      totalCalculated,
-      basket
-    );
+      let totalWithTax =
+        parseFloat(preTotalWithDiscounts.toFixed(2)) + parseFloat(amountToTax);
+      $("#total-text-area").val(totalWithTax.toFixed(2));
+    }
 
-    // Do yoou need this?
-    let itemsTotalDiscounts = till.receipt.discount.applyDiscounts(
-      totalCalculated,
-      basket
-    );
+    printReceipt() {
+      let receipt = till.receipt.printReceipt(till.basket.returnBasket());
+      $("#receipt-text-area").val(
+        receipt.map(
+          receiptLine => `${receiptLine}
 
-    // Do you need this?
-    let itemsTotalWithoutTax = till.receipt.total.calculate(basket).toFixed(2);
-
-    let appliedTax = till.receipt.tax.applyTax(totalCalculated).toFixed(2);
-    let amountToTax = appliedTax - totalCalculated;
-
-    let totalWithTax =
-      parseFloat(itemsTotalDiscounts.toFixed(2)) + parseFloat(amountToTax);
-    $("#total-text-area").val(totalWithTax.toFixed(2));
-  },
-
-  printRceipt: function() {
-    let receipt = till.receipt.printReceipt(till.basket.returnBasket());
-
-    $("#receipt-text-area").val(
-      receipt.map(
-        receiptLine => `${receiptLine}
-        
-      `
-      )
-    );
+        `
+        )
+      );
+    }
   }
-};
+
+  exports.Display = Display;
+})(this);
