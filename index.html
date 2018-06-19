@@ -9,7 +9,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script defer="defer" src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
-  <!-- Source Files-->
+
+  <!--  Model Files-->
+  <script src="src/products.js" charset="utf-8"></script>
+  <script src="src/basket.js" charset="utf-8"></script>
+
+  <!-- Controller Files-->
   <script src="src/products.js" charset="utf-8"></script>
   <script src="src/basket.js" charset="utf-8"></script>
   <script src="src/till.js" charset="utf-8"></script>
@@ -21,10 +26,14 @@
   <script src="src/discount.js" charset="utf-8"></script>
 
   <!-- Views Files -->
+  <script src="src/interface/display.js" charset="utf-8"></script>
+  <script src="src/interface/buttons.js" charset="utf-8"></script>
+
+  <!-- <script src="src/interface/testing.js" charset="utf-8"></script> -->
+
   <script src="src/interface/app.js" charset="utf-8"></script>
   <script src="src/interface/till_views.js" charset="utf-8"></script>
   <script src="src/interface/buttons.js" charset="utf-8"></script>
-  <script src="src/interface/display.js" charset="utf-8"></script>
 
 
   <!-- Stylesheets -->
@@ -52,7 +61,7 @@
     <div class="container">
       <div class="field is-horizontal">
 
-        <label class="label">Customers:
+        <label class="label">Customer Name:
           </label>
         <div class="control">
           <input id="customer-names-input" class="input" type="text" placeholder="Enter Names...">
@@ -86,7 +95,7 @@
             <div class="level-right">
               <div class="field">
                 <div class="control">
-                  <b>Total:</b>
+                  <b>Cost:</b>
                   <input id="total-text-area" class="input is-primary" type="text" placeholder="00.00" disabled>
                 </div>
                 <a id="pay-button" class="button is-success ">Pay Cash!</a>
