@@ -49,7 +49,6 @@
         }
       );
 
-      // console.log(preTotal, "withouttax");
       let amountToTax = (
         tax.applyTax(total.calculate(args)).toFixed(2) - preTotal
       ).toFixed(2);

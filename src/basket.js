@@ -1,6 +1,6 @@
 (function(exports) {
   class Basket {
-    constructor() { }
+    constructor() {}
 
     clearBasket() {
       _basket.length = 0;
@@ -9,12 +9,11 @@
     returnBasket() {
       if (_basket[0] === undefined) {
         return _basket;
-      }
-      else {
+      } else {
         return _basket[0];
       }
     }
-    
+
     addToBasket(order) {
       _basket.push(order);
     }

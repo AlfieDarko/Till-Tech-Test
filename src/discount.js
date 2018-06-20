@@ -16,7 +16,9 @@
       return discountedTotal;
     }
 
-    // function returning wherther the muffinDiscount bool should be on or not
+    // returnMuffinDiscountBool function returning wherther the
+    // muffinDiscount bool should be on or not
+
     returnMuffinDiscountBool(returnBasket) {
       let destructuredBasket = returnBasket.items;
       // pass just basket items into destructuredBasket variable
