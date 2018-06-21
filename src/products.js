@@ -32,6 +32,5 @@
     }
   }
 
-
   exports.Products = Products;
 })(this);
