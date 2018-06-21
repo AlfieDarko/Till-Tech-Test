@@ -60,10 +60,10 @@
       this.addDiscountAlertOnReceipt(args, preTotal);
       discount.resetDiscounts();
       receiptArray.push(
-        `Total: £${preTotal}`,
-        `Discount Price: £${preTotalWithDiscounts.toFixed(2)}`,
-        `Tax: £${amountToTax}`,
-        `Total w/ Tax: £${totalWithTax.toFixed(2)}`
+        "Total: £" + preTotal + " \n",
+        "Discount Price: £" + preTotalWithDiscounts.toFixed(2) + " \n",
+        "Tax: £" + amountToTax + " \n",
+        "Total w/ Tax: £" + totalWithTax.toFixed(2) + " \n"
       );
 
       return receiptArray;
