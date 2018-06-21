@@ -7,11 +7,8 @@
     }
 
     returnBasket() {
-      if (_basket[0] === undefined) {
-        return _basket;
-      } else {
-        return _basket[0];
-      }
+      console.log(_basket);
+      return _basket[0] === undefined ? _basket : _basket[0];
     }
 
     addToBasket(order) {
