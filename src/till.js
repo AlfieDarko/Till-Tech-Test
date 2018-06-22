@@ -5,6 +5,7 @@
       this.payments = Payments;
       this.receipt = Receipt;
     }
+
     makePayment(cashPayment) {
       let preTotal = this.receipt.total.calculate(this.basket.returnBasket());
       let preTotalWithDiscounts = this.receipt.discount.applyDiscounts(
@@ -15,11 +16,49 @@
       let expectedPayment = this.payments.setExpectedPayment(totalCost);
       this.payments.takePayment(cashPayment);
       let returnedChange = this.payments.returnChange();
-      console.log(returnedChange);
     }
-    printReceipt() {
-      this.receipt.printReceipt();
+
+    printReceipt(basket) {
+      this.receipt.printReceipt(basket);
     }
+
+    returnChange() {
+      return this.payments.returnChange();
+    }
+
+    returnBasket() {
+      return this.basket.returnBasket();
+    }
+
+    returnBasketItems(){
+      return this.basket.returnBasketItems()
+    }
+
+    addToBasket(order) {
+      this.basket.addToBasket(order);
+    }
+
+    clearBasket() {
+      this.basket.clearBasket();
+    }
+
+    calculate(basket) {
+      return this.receipt.total.calculate(till.basket.returnBasket())
+    }
+
+    applyTax(preTotal){
+      return this.receipt.tax.applyTax(preTotal)
+    }
+
+    applyDiscounts(preTotal, returnBasket){
+      return this.receipt.discount.applyDiscounts(
+        preTotal,
+        this.basket.returnBasket()
+      );
+    }
+
+
+
   }
 
   exports.Till = Till;
