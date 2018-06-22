@@ -1,6 +1,7 @@
 (function(exports) {
   class Buttons {
-    constructor() {}
+    constructor() {
+    }
 
     addName() {
       if ($("#customer-names-input").val()) {
@@ -15,16 +16,14 @@
         alert("Enter the customer name!");
       } else {
         let items = [];
-        $("#items-in-dropdown option:selected").each(function(i, sel) {
-          items.push($(sel).val());
+        $("#items-in-dropdown option:selected").each(function(indexOfItem, selectedItem) {
+          items.push($(selectedItem).val());
         });
-
-        till.basket.addToBasket({
+        till.addToBasket({
           name: customerNameFromInput,
           items: [...items]
         });
-
-        till.basket.returnBasket().items.forEach(function(item) {
+        till.returnBasketItems().forEach(function(item) {
           let option = document.createElement("option");
           option.textContent = item;
           option.disabled = true;
@@ -37,7 +36,7 @@
     }
 
     clearCart() {
-      till.basket.clearBasket();
+      till.clearBasket();
       $("#cart-with-items")
         .find("option")
         .remove()
@@ -48,13 +47,13 @@
 
     submitToTill() {
       let moneyInTillTextArea = $("#money-in-till-text-area").val();
-      console.log(moneyInTillTextArea);
+
       till.makePayment(moneyInTillTextArea);
       display.printReceipt();
-      this.cancelPaymentScreen();
+      this.closePaymentScreen();
     }
 
-    cancelPaymentScreen() {
+    closePaymentScreen() {
       $(".modal").removeClass("is-active");
     }
   }
