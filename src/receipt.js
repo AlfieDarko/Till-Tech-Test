@@ -4,7 +4,6 @@
       this.total = Total;
       this.tax = Tax;
       this.discount = Discount;
-      // this.products = new Products();
     }
 
     zipItemsAndPrices(...arrays) {
