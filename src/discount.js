@@ -12,13 +12,11 @@
       this.returnSpendOver50DiscountBool(total);
 
       discountedTotal = inputTotal -= (total / 100) * discountRate;
-      console.log(discountedTotal);
       return discountedTotal;
     }
 
     // returnMuffinDiscountBool function returning wherther the
     // muffinDiscount bool should be on or not
-
     returnMuffinDiscountBool(returnBasket) {
       let destructuredBasket = returnBasket.items;
       // pass just basket items into destructuredBasket variable
