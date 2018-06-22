@@ -1,15 +1,20 @@
 (function(exports) {
   class Display {
-    constructor() {}
+    constructor() {
+    }
 
     viewTotal() {
-      let basket = till.basket.returnBasket();
-      let preTotal = till.receipt.total.calculate(basket);
-      let preTotalWithDiscounts = till.receipt.discount.applyDiscounts(
+      let basket = till.returnBasket();
+      let preTotal = till.calculate(basket);
+
+      let preTotalWithDiscounts = till.applyDiscounts(
         preTotal,
         basket
       );
-      let appliedTax = till.receipt.tax.applyTax(preTotal).toFixed(2);
+      let appliedTax = till.applyTax(preTotal).toFixed(2);
+
+
+
       let amountToTax = appliedTax - preTotal;
 
       let totalWithTax =
@@ -18,12 +23,10 @@
     }
 
     printReceipt() {
-      let receipt = till.receipt.printReceipt(till.basket.returnBasket());
+      let receipt = till.printReceipt(till.returnBasket());
       $("#receipt-text-area").val(
         receipt.map(
-          receiptLine => `${receiptLine}
-
-        `
+          receiptLine => receiptLine + "\n"
         )
       );
     }
