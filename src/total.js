@@ -3,17 +3,20 @@
     constructor(Products) {
       this.products = Products;
     }
+
     calculate(args) {
+      let items = args.items
       let total = 0;
       let self = this;
       let newTotal = 0;
-      let Total = args.items.reduce((newTotal, items) => {
+      let Total = items.reduce((newTotal, items) => {
         if (self.products.listProducts().hasOwnProperty(items)) {
           return (newTotal += self.products.listProducts()[items]);
         }
       }, 0);
       return Total;
     }
+
     calculateLinePrice(args) {
       let lineTotal = [];
       let items = args.items;
