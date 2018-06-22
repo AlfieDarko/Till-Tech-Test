@@ -7,8 +7,11 @@
     }
 
     returnBasket() {
-      console.log(_basket);
       return _basket[0] === undefined ? _basket : _basket[0];
+    }
+
+    returnBasketItems(){
+      return _basket[0] === undefined ? _basket : _basket[0].items;
     }
 
     addToBasket(order) {
