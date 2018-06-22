@@ -13,9 +13,8 @@
         this.basket.returnBasket()
       );
       let totalCost = this.receipt.tax.applyTax(preTotalWithDiscounts);
-      let expectedPayment = this.payments.setExpectedPayment(totalCost);
+      this.payments.setExpectedPayment(totalCost);
       this.payments.takePayment(cashPayment);
-      let returnedChange = this.payments.returnChange();
     }
 
     printReceipt(basket) {

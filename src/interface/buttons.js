@@ -5,14 +5,14 @@
 
     addName() {
       if ($("#customer-names-input").val()) {
-        customerNameFromInput = $("#customer-names-input").val();
+        _customerNameFromInput = $("#customer-names-input").val();
         $("#customer-names-input").prop("disabled", true);
         $("#add-name-button").prop("disabled", true);
       }
     }
 
     addToCart() {
-      if (customerNameFromInput == null) {
+      if (_customerNameFromInput == null) {
         alert("Enter the customer name!");
       } else {
         let items = [];
@@ -20,7 +20,7 @@
           items.push($(selectedItem).val());
         });
         till.addToBasket({
-          name: customerNameFromInput,
+          name: _customerNameFromInput,
           items: [...items]
         });
         till.returnBasketItems().forEach(function(item) {
@@ -57,7 +57,7 @@
       $(".modal").removeClass("is-active");
     }
   }
-  let customerNameFromInput;
+  let _customerNameFromInput;
 
   exports.Buttons = Buttons;
 })(this);

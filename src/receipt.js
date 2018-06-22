@@ -21,30 +21,27 @@
         discount.returnMuffinDiscountBool(args) &&
         discount.returnSpendOver50DiscountBool(totalCalculated)
       ) {
-        receiptArray.push(
+        _receiptArray.push(
           "10% Muffin Discount!",
           "5% Off Purchases over 50 Discount!"
         );
       } else if (discount.returnMuffinDiscountBool(args)) {
-        receiptArray.push("10% Muffin Discount!");
+        _receiptArray.push("10% Muffin Discount!");
       } else if (discount.returnSpendOver50DiscountBool(totalCalculated)) {
-        receiptArray.push("5% Off Purchases over 50 Discount!");
+        _receiptArray.push("5% Off Purchases over 50 Discount!");
       }
     }
 
     printReceipt(args) {
-      let self = this;
-      let lineItemString;
-      let totalCalculated = total.calculate(args);
       let preTotal = total.calculate(args).toFixed(2);
       let preTotalWithDiscounts = discount.applyDiscounts(preTotal, args);
 
-      receiptArray.push(`${args.name}'s Order:`);
+      _receiptArray.push(`${args.name}'s Order:`);
 
       // This zips-up item and price together and push into receipt array
       this.zipItemsAndPrices(args.items, total.calculateLinePrice(args)).map(
         lineItem => {
-          receiptArray.push(`${lineItem[0]}: £${lineItem[1]}`);
+          _receiptArray.push(`${lineItem[0]}: £${lineItem[1]}`);
         }
       );
 
@@ -58,18 +55,18 @@
       // Now we add all the info to an receipts array
       this.addDiscountAlertOnReceipt(args, preTotal);
       discount.resetDiscounts();
-      receiptArray.push(
+      _receiptArray.push(
         "Total: £" + preTotal + " \n",
         "Discount Price: £" + preTotalWithDiscounts.toFixed(2) + " \n",
         "Tax: £" + amountToTax + " \n",
         "Total w/ Tax: £" + totalWithTax.toFixed(2) + " \n"
       );
 
-      return receiptArray;
+      return _receiptArray;
     }
   }
 
-  let receiptArray = [];
+  let  _receiptArray = [];
 
   exports.Receipt = Receipt;
 })(this);

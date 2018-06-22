@@ -2,7 +2,7 @@
   class Discount {
     constructor() {}
     applyDiscounts(total, returnBasket) {
-      let destructuredBasket = returnBasket.items;
+      // let destructuredBasket = returnBasket.items;
       let inputTotal = total;
       let discountedTotal = 0;
       discountedTotal = total;
@@ -11,11 +11,11 @@
       this.returnMuffinDiscountBool(returnBasket);
       this.returnSpendOver50DiscountBool(total);
 
-      discountedTotal = inputTotal -= (total / 100) * discountRate;
+      discountedTotal = inputTotal -= (total / 100) * _discountRate;
       return discountedTotal;
     }
 
-    // returnMuffinDiscountBool function returning wherther the
+    // returnMuffinDiscountBool function returning whether the
     // muffinDiscount bool should be on or not
     returnMuffinDiscountBool(returnBasket) {
       let destructuredBasket = returnBasket.items;
@@ -28,31 +28,31 @@
           element.includes("Chocolate Chip Muffin") ||
           element.includes("Muffin Of The Day")
         ) {
-          discountRate += 10;
-          muffinDiscountBool = true;
+          _discountRate += 10;
+          _muffinDiscountBool = true;
         }
       });
-      return muffinDiscountBool;
+      return _muffinDiscountBool;
     }
 
     returnSpendOver50DiscountBool(amount) {
       if (amount > 50) {
-        discountRate += 5;
-        spendOver50DiscountBool = true;
+        _discountRate += 5;
+        _spendOver50DiscountBool = true;
       }
-      return spendOver50DiscountBool;
+      return _spendOver50DiscountBool;
     }
 
     resetDiscounts() {
-      spendOver50DiscountBool = false;
-      muffinDiscountBool = false;
-      discountRate = 0;
+      _spendOver50DiscountBool = false;
+      _muffinDiscountBool = false;
+      _discountRate = 0;
     }
   }
 
-  let muffinDiscountBool = false;
-  let spendOver50DiscountBool = false;
-  let discountRate = 0;
+  let _muffinDiscountBool = false;
+  let _spendOver50DiscountBool = false;
+  let _discountRate = 0;
 
   exports.Discount = Discount;
 })(this);
