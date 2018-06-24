@@ -72,6 +72,10 @@
     printReceipt() {
       return _receiptArray
     }
+
+    clearReceipt(){
+      _receiptArray.length = 0
+    }
   }
 
   let  _receiptArray = [];

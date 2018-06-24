@@ -13,16 +13,18 @@ describe("Receipt", function() {
   let productsMock;
   describe(".printReceipt()", function() {
     beforeEach(function() {
-      sinon.stub(Total.prototype, "calculate").callsFake(() => 6.8);
+      sinon
+        .stub(Total.prototype, "calculate")
+        .callsFake(() => 6.8);
       sinon
         .stub(Total.prototype, "calculateLinePrice")
         .callsFake(() => [4.75, 2.05]);
-
-      sinon.stub(Payments.prototype, "setExpectedPayment").callsFake(() => 7.39)
-
-      sinon.stub(Payments.prototype, "takePayment").callsFake(() => 10)
-
-
+      sinon
+        .stub(Payments.prototype, "setExpectedPayment")
+        .callsFake(() => 7.39)
+      sinon
+        .stub(Payments.prototype, "takePayment")
+        .callsFake(() => 10)
       receipt = new Receipt(Total, Tax, Discount, Products);
 
       returnBasket = {
@@ -90,7 +92,14 @@ describe("Receipt", function() {
         "    Change Given: £2.61"
       )
     });
+  });
 
+  describe('clearReceipt()', () => {
+    it('clears the receipt Array', () => {
+      receipt.clearReceipt()
+      expect(receipt.printReceipt()).to.eql([])
+    });
 
   });
+
 });

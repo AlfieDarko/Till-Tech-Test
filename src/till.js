@@ -23,8 +23,11 @@
       )
       this.receipt.addCashPaidFromTillToReceipt(this.payments.showAmountGiven())
       this.receipt.addChangeGivenFromTillToReceipt(this.payments.returnChange())
-       return this.receipt.printReceipt(
-       );
+       return this.receipt.printReceipt();
+    }
+
+    clearReceipt(){
+      this.receipt.clearReceipt()
     }
 
     returnChange() {
