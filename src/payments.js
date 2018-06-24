@@ -27,7 +27,6 @@
     showAmountGiven() {
       return _amountGiven
     }
-
   }
 
   let _amountGiven = 0

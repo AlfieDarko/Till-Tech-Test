@@ -1,6 +1,6 @@
 (function(exports) {
   class Buttons {
-    constructor() {
+    constructor(till) {
     }
 
     addName() {
@@ -29,7 +29,6 @@
           option.disabled = true;
           document.getElementById("cart-with-items").appendChild(option);
         });
-
         $("#add-to-cart-button").prop("disabled", true);
         display.viewTotal();
       }
@@ -47,7 +46,6 @@
 
     submitToTill() {
       let moneyInTillTextArea = $("#money-in-till-text-area").val();
-
       till.makePayment(moneyInTillTextArea);
       display.printReceipt();
       this.closePaymentScreen();

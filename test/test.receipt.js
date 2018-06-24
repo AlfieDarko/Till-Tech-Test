@@ -160,10 +160,18 @@ describe("Receipt", function() {
       receipt.createReceipt(returnBasket)
       expect(receipt.printReceipt()).to.include("18/04/1991 09:00:00 \n")
     });
+  });
 
-
+  describe('addShopDetailsToReceipt()', () => {
+    expect(receipt.addShopDetailsToReceipt()).to.eql(
+      "The Coffee Connection",
+      "123 Lakeside Way",
+      "E2CA LB4",
+      "Tel:0207 324 5342"
+    )
 
   });
+
 
 
 });

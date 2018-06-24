@@ -16,6 +16,21 @@
       );
     }
 
+    addShopDetailsToReceipt(){
+      _receiptArray.push(
+        "The Coffee Connection",
+        "123 Lakeside Way",
+        "E2CA LB4",
+        "Tel:0207 324 5342",
+        "\n",
+        "++++++++++++++"
+      )
+    }
+
+    addDateTimeToReceipt(){
+      _receiptArray.push(`${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()} \n`)
+    }
+
     addDiscountAlertOnReceipt(args, totalCalculated) {
       if (
         discount.returnMuffinDiscountBool(args) &&
@@ -33,8 +48,8 @@
     }
 
     createReceipt(basket) {
-      // adds the dateTime to the receipt
-      _receiptArray.push(`${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()} \n`)
+      this.addShopDetailsToReceipt()
+      this.addDateTimeToReceipt()
       // set up variable names for clarification
       let preTotal = total.calculate(basket).toFixed(2);
       let preTotalWithDiscounts = discount.applyDiscounts(preTotal, basket);
@@ -50,11 +65,10 @@
           _receiptArray.push(`${lineItem[0]}: £${lineItem[1]}`);
         }
       );
-      // Now we add the discounts and totals info to an receipts array
       this.addDiscountAlertOnReceipt(basket, preTotal);
-      discount.resetDiscounts();basket
+      discount.resetDiscounts();
       _receiptArray.push(
-        `===========================`,
+        `==================`,
         `  Total: £${preTotal}`,
         `  Discount Price: £ ${preTotalWithDiscounts.toFixed(2)}`,
         `  Tax: £${amountToTax}`,

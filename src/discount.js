@@ -27,7 +27,6 @@
       ) : (
       _discountRate = 0, _muffinDiscountBool = false
       )
-
       return _muffinDiscountBool;
     }
 

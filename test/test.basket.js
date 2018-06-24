@@ -41,10 +41,26 @@ describe("Basket", function() {
     });
 
     it("clears Basket array of all contents", function() {
-      // let orders = new Basket();
       basket.addToBasket("Tom", "Cafe Latte");
       basket.clearBasket();
       expect(basket.returnBasket()).to.be.eql([]);
     });
   });
+
+  describe('.returnBasket', () => {
+    it('returns the basket item and ordernames', () => {
+      basket.addToBasket({
+        name: "Tom",
+        items: ["Cafe Latte"]
+      });
+      console.log(basket.returnBasket());
+      expect(basket.returnBasket()).to.eql({
+        name: "Tom",
+        items: ["Cafe Latte"]
+      })
+
+    });
+
+  });
+
 });
