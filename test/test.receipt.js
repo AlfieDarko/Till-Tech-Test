@@ -95,6 +95,19 @@ describe("Receipt", function() {
     });
   });
 
+  describe('.addCashPaidFromTillToReceipt()', () => {
+    it('adds cash paid to the till  on the receipt', () => {
+      receipt.clearReceipt()
+      receipt.addCashPaidFromTillToReceipt(50)
+      expect(receipt.printReceipt(returnBasket)).to.include(
+        "    Amount Paid: £50"
+      )
+
+    });
+
+  });
+
+
   describe('clearReceipt()', () => {
     it('clears the receipt Array', () => {
       receipt.clearReceipt()
