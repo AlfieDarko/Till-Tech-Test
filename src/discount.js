@@ -28,7 +28,8 @@
           element.includes("Chocolate Chip Muffin") ||
           element.includes("Muffin Of The Day")
         ) {
-          _discountRate += 10;
+          _discountRate = 10;
+          console.log(_discountRate);
           _muffinDiscountBool = true;
         }
       });
