@@ -70,7 +70,6 @@ describe("Receipt", function() {
     });
 
     it("includes total with the Taxrate applied", function() {
-      console.log(receipt.printReceipt(returnBasket));
       expect(receipt.printReceipt()).to.include(
         "  Total w/ Tax: £7.39"
       );
@@ -84,6 +83,14 @@ describe("Receipt", function() {
         "    Amount Paid: £10"
       )
     });
+
+    it('includes the amount of change the customer is expected to receive', () => {
+      receipt.addChangeGivenFromTillToReceipt(2.61)
+      expect(receipt.printReceipt()).to.include(
+        "    Change Given: £2.61"
+      )
+    });
+
 
   });
 });
