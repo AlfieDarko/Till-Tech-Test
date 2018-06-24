@@ -5,15 +5,15 @@
       _expectedPayment = postTaxAmount;
       return _expectedPayment;
     }
-    takePayment(amount) {
-      if (isNaN(amount)) {
+    takePayment(amountGiven) {
+      if (isNaN(amountGiven)) {
         throw new Error("Not a valid number");
       }
-      if (amount < _expectedPayment) {
+      if (amountGiven < _expectedPayment) {
         throw new Error("Not enough to make payment");
       }
-      _amountGiven = amount
-      _changeExpected = amount - _expectedPayment;
+      _amountGiven = amountGiven
+      _changeExpected = amountGiven - _expectedPayment;
       return true;
     }
     returnChange() {
