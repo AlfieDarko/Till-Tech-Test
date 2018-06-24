@@ -158,7 +158,7 @@ describe("Receipt", function() {
     it('it adds the date and time to the receipt', () => {
       receipt.clearReceipt()
       receipt.createReceipt(returnBasket)
-      expect(receipt.printReceipt()).to.include("18/04/1991 09:00:00")
+      expect(receipt.printReceipt()).to.include("18/04/1991 09:00:00 \n")
     });
 
 

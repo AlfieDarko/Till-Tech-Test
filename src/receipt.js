@@ -34,7 +34,7 @@
 
     createReceipt(basket) {
       // adds the dateTime to the receipt
-      _receiptArray.push(`${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`)
+      _receiptArray.push(`${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()} \n`)
 
       let preTotal = total.calculate(basket).toFixed(2);
       let preTotalWithDiscounts = discount.applyDiscounts(preTotal, basket);
