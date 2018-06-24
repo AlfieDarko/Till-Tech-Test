@@ -15,24 +15,19 @@
       return discountedTotal;
     }
 
-    // returnMuffinDiscountBool function returning whether the
-    // muffinDiscount bool should be on or not
     returnMuffinDiscountBool(returnBasket) {
       let destructuredBasket = returnBasket.items;
-      // pass just basket items into destructuredBasket variable
-      // goes through the elements and checks if they have a muffin,
-      // rendering muffinDiscountBool as true
-      destructuredBasket.forEach(function(element) {
-        if (
-          element.includes("Blueberry Muffin") ||
-          element.includes("Chocolate Chip Muffin") ||
-          element.includes("Muffin Of The Day")
-        ) {
-          _discountRate = 10;
-          console.log(_discountRate);
-          _muffinDiscountBool = true;
-        }
-      });
+
+      ['Blueberry Muffin',
+      'Chocolate Chip Muffin',
+      'Muffin Of The Day'].some(
+        typeOfMuffin => destructuredBasket.includes(typeOfMuffin)
+      ) ? (
+       _discountRate = 10, _muffinDiscountBool = true
+      ) : (
+      _discountRate = 0, _muffinDiscountBool = false
+      )
+
       return _muffinDiscountBool;
     }
 
