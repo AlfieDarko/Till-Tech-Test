@@ -81,7 +81,6 @@ describe("Receipt", function() {
     it('includes the amount of cash paid by the customer', () => {
     receipt.addCashPaidFromTillToReceipt(10)
     console.log(receipt.printReceipt(returnBasket));
-
       expect(receipt.printReceipt(returnBasket)).to.include(
         "    Amount Paid: £10"
       )
@@ -93,6 +92,8 @@ describe("Receipt", function() {
         "    Change Given: £2.61"
       )
     });
+
+    // printReceipt ends
   });
 
   describe('.addCashPaidFromTillToReceipt()', () => {
@@ -102,10 +103,20 @@ describe("Receipt", function() {
       expect(receipt.printReceipt(returnBasket)).to.include(
         "    Amount Paid: £50"
       )
-
     });
+  })
 
+  describe('.addChangeGivenFromTillToReceipt()', () => {
+    it('adds change given to customer on the receipt', () => {
+      // receipt.clearReceipt()
+      console.log(receipt);
+      receipt.addChangeGivenFromTillToReceipt(2.61)
+      expect(receipt.printReceipt()).to.include(
+        "    Change Given: £2.61"
+      )
+    });
   });
+
 
 
   describe('clearReceipt()', () => {
