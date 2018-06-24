@@ -1,6 +1,6 @@
 (function(exports) {
   class Display {
-    constructor() {
+    constructor(till) {
     }
 
     viewTotal() {
@@ -11,10 +11,8 @@
         preTotal,
         basket
       );
+
       let appliedTax = till.applyTax(preTotal).toFixed(2);
-
-
-
       let amountToTax = appliedTax - preTotal;
 
       let totalWithTax =
@@ -23,10 +21,13 @@
     }
 
     printReceipt() {
+
       let receipt = till.printReceipt(till.returnBasket());
+      console.log(receipt);
+
       $("#receipt-text-area").val(
         receipt.map(
-          receiptLine => receiptLine + "\n"
+          receiptLine => `${receiptLine}` + "\n"
         )
       );
     }

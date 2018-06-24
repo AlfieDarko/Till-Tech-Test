@@ -5,6 +5,7 @@
     }
 
     calculate(args) {
+      console.log(args.items);
       let items = args.items
       let self = this;
       let Total = items.reduce((newTotal, items) => {

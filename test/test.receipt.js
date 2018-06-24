@@ -36,7 +36,7 @@ describe("Receipt", function() {
     });
 
     it("prints a receipt including the correct price of order", function() {
-      expect(receipt.printReceipt(returnBasket)).to.include("Total: £6.80 \n");
+      expect(receipt.printReceipt(returnBasket)).to.include("  Total: £6.80");
     });
 
     it("prints a receipt including the correct items ", function() {
@@ -64,7 +64,7 @@ describe("Receipt", function() {
     it("includes total with the Taxrate applied", function() {
       console.log(receipt.printReceipt(returnBasket));
       expect(receipt.printReceipt(returnBasket)).to.include(
-        "Total w/ Tax: £7.39 \n"
+        "  Total w/ Tax: £7.39"
       );
     });
   });

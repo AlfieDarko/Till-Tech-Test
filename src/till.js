@@ -17,8 +17,10 @@
       this.payments.takePayment(cashPayment);
     }
 
-    printReceipt(basket) {
-      this.receipt.printReceipt(basket);
+    printReceipt(args) {
+       return this.receipt.printReceipt(
+         this.basket.returnBasket()
+       );
     }
 
     returnChange() {
