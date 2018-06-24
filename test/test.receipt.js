@@ -108,7 +108,6 @@ describe("Receipt", function() {
 
   describe('.addChangeGivenFromTillToReceipt()', () => {
     it('adds change given to customer on the receipt', () => {
-      // receipt.clearReceipt()
       console.log(receipt);
       receipt.addChangeGivenFromTillToReceipt(2.61)
       expect(receipt.printReceipt()).to.include(
@@ -116,7 +115,6 @@ describe("Receipt", function() {
       )
     });
   });
-
 
 
   describe('clearReceipt()', () => {
@@ -134,11 +132,36 @@ describe("Receipt", function() {
         items: ["Chocolate Chip Muffin", "Cafe Latte", "Flat White"]
       }
 
-      receipt.createReceipt(muffinBasket)
+      // receipt.createReceipt(muffinBasket)
       receipt.addDiscountAlertOnReceipt(muffinBasket)
       console.log(receipt.printReceipt());
     expect(receipt.printReceipt()).to.include("10% Muffin Discount!")
     });
+  });
+
+  describe('.addDateTimeToReceipt()', () => {
+
+    beforeEach(() => {
+      sinon
+        .stub(Date.prototype, 'toLocaleDateString')
+        .returns('18/04/1991')
+      sinon
+        .stub(Date.prototype, 'toLocaleTimeString')
+        .returns('09:00:00')
+
+    });
+    afterEach(() => {
+      Date.prototype.toLocaleDateString.restore()
+      Date.prototype.toLocaleTimeString.restore()
+    });
+
+    it('it adds the date and time to the receipt', () => {
+      receipt.clearReceipt()
+      receipt.createReceipt(returnBasket)
+      expect(receipt.printReceipt()).to.include("18/04/1991 09:00:00")
+    });
+
+
 
   });
 

@@ -33,11 +33,14 @@
     }
 
     createReceipt(basket) {
+      // adds the dateTime to the receipt
+      _receiptArray.push(`${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`)
+
       let preTotal = total.calculate(basket).toFixed(2);
       let preTotalWithDiscounts = discount.applyDiscounts(preTotal, basket);
       _receiptArray.push(`${basket.name}'s Order:`);
 
-      // This zips-up item and price together and push into receipt array
+      // This zips-up item and price together as a line item and push into receipt array
       this.zipItemsAndPrices(basket.items, total.calculateLinePrice(basket)).map(
         lineItem => {
           _receiptArray.push(`${lineItem[0]}: £${lineItem[1]}`);
@@ -50,7 +53,7 @@
       let totalWithTax =
         parseFloat(preTotalWithDiscounts) + parseFloat(amountToTax);
 
-      // Now we add all the info to an receipts array
+      // Now we add  the  discounts and totals info to an receipts array
       this.addDiscountAlertOnReceipt(basket, preTotal);
       discount.resetDiscounts();basket
       _receiptArray.push(
