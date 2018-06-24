@@ -32,27 +32,27 @@
       }
     }
 
-    createReceipt(args) {
-      let preTotal = total.calculate(args).toFixed(2);
-      let preTotalWithDiscounts = discount.applyDiscounts(preTotal, args);
-      _receiptArray.push(`${args.name}'s Order:`);
+    createReceipt(basket) {
+      let preTotal = total.calculate(basket).toFixed(2);
+      let preTotalWithDiscounts = discount.applyDiscounts(preTotal, basket);
+      _receiptArray.push(`${basket.name}'s Order:`);
 
       // This zips-up item and price together and push into receipt array
-      this.zipItemsAndPrices(args.items, total.calculateLinePrice(args)).map(
+      this.zipItemsAndPrices(basket.items, total.calculateLinePrice(basket)).map(
         lineItem => {
           _receiptArray.push(`${lineItem[0]}: £${lineItem[1]}`);
         }
       );
 
       let amountToTax = (
-        tax.applyTax(total.calculate(args)).toFixed(2) - preTotal
+        tax.applyTax(total.calculate(basket)).toFixed(2) - preTotal
       ).toFixed(2);
       let totalWithTax =
         parseFloat(preTotalWithDiscounts) + parseFloat(amountToTax);
 
       // Now we add all the info to an receipts array
-      this.addDiscountAlertOnReceipt(args, preTotal);
-      discount.resetDiscounts();
+      this.addDiscountAlertOnReceipt(basket, preTotal);
+      discount.resetDiscounts();basket
       _receiptArray.push(
         `  Total: £${preTotal}`,
         `  Discount Price: £ ${preTotalWithDiscounts.toFixed(2)}`,

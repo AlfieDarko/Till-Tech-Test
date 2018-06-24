@@ -33,6 +33,7 @@ describe("Receipt", function() {
       };
     });
 
+
     afterEach(function() {
       Total.prototype.calculate.restore();
       Total.prototype.calculateLinePrice.restore();
@@ -101,5 +102,21 @@ describe("Receipt", function() {
     });
 
   });
+
+  describe('.addDiscountAlertOnReceipt()', () => {
+    it('adds text that shows the customer that a muffin discount of 10% has been applied', () => {
+      let muffinBasket = {
+        name: "Muffin Man",
+        items: ["Chocolate Chip Muffin", "Cafe Latte", "Flat White"]
+      }
+
+      receipt.createReceipt(muffinBasket)
+      receipt.addDiscountAlertOnReceipt(muffinBasket)
+      console.log(receipt.printReceipt());
+    expect(receipt.printReceipt()).to.include("10% Muffin Discount!")
+    });
+
+  });
+
 
 });
