@@ -32,10 +32,9 @@
       }
     }
 
-    printReceipt(args) {
+    createReceipt(args) {
       let preTotal = total.calculate(args).toFixed(2);
       let preTotalWithDiscounts = discount.applyDiscounts(preTotal, args);
-
       _receiptArray.push(`${args.name}'s Order:`);
 
       // This zips-up item and price together and push into receipt array
@@ -48,7 +47,6 @@
       let amountToTax = (
         tax.applyTax(total.calculate(args)).toFixed(2) - preTotal
       ).toFixed(2);
-
       let totalWithTax =
         parseFloat(preTotalWithDiscounts) + parseFloat(amountToTax);
 
@@ -59,10 +57,20 @@
         `  Total: £${preTotal}`,
         `  Discount Price: £ ${preTotalWithDiscounts.toFixed(2)}`,
         `  Tax: £${amountToTax}`,
-        `  Total w/ Tax: £${totalWithTax.toFixed(2)}`
+        `  Total w/ Tax: £${totalWithTax.toFixed(2)}`,
       );
-      console.log(_receiptArray);
-      return _receiptArray;
+    }
+
+    addCashPaidFromTillToReceipt(cashPaid){
+      _receiptArray.push(`    Amount Paid: £${cashPaid}`)
+    }
+
+    addChangeGivenFromTillToReceipt(changeGiven){
+      _receiptArray.push(`    Change Given: £${changeGiven}`)
+    }
+
+    printReceipt() {
+      return _receiptArray
     }
   }
 

@@ -12,14 +12,25 @@
       if (amount < _expectedPayment) {
         throw new Error("Not enough to make payment");
       }
+      _amountGiven = amount
       _changeExpected = amount - _expectedPayment;
       return true;
     }
     returnChange() {
       return parseFloat(_changeExpected.toFixed(2));
     }
+
+    showExpectedPayment() {
+      return _expectedPayment
+    }
+
+    showAmountGiven() {
+      return _amountGiven
+    }
+
   }
 
+  let _amountGiven = 0
   let _expectedPayment = 0;
   let _changeExpected = 0;
 

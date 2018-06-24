@@ -18,8 +18,12 @@
     }
 
     printReceipt(args) {
+      this.receipt.createReceipt(
+        this.basket.returnBasket()
+      )
+      this.receipt.addCashPaidFromTillToReceipt(this.payments.showAmountGiven())
+      this.receipt.addChangeGivenFromTillToReceipt(this.payments.returnChange())
        return this.receipt.printReceipt(
-         this.basket.returnBasket()
        );
     }
 
