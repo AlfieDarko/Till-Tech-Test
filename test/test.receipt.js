@@ -131,13 +131,26 @@ describe("Receipt", function() {
         name: "Muffin Man",
         items: ["Chocolate Chip Muffin", "Cafe Latte", "Flat White"]
       }
-
-      // receipt.createReceipt(muffinBasket)
       receipt.addDiscountAlertOnReceipt(muffinBasket)
       console.log(receipt.printReceipt());
     expect(receipt.printReceipt()).to.include("10% Muffin Discount!")
     });
   });
+
+    describe('addShopDetailsToReceipt()', () => {
+
+      it('adds shop details like telephone number and address to the top of the receipt', () => {
+         receipt.addShopDetailsToReceipt()
+         expect(receipt.printReceipt()).to.include(
+           "The Coffee Connection",
+           "123 Lakeside Way",
+           "E2CA LB4",
+           "Tel:0207 324 5342"
+         )
+
+      });
+
+    });
 
   describe('.addDateTimeToReceipt()', () => {
 
@@ -161,17 +174,4 @@ describe("Receipt", function() {
       expect(receipt.printReceipt()).to.include("18/04/1991 09:00:00 \n")
     });
   });
-
-  describe('addShopDetailsToReceipt()', () => {
-    expect(receipt.addShopDetailsToReceipt()).to.eql(
-      "The Coffee Connection",
-      "123 Lakeside Way",
-      "E2CA LB4",
-      "Tel:0207 324 5342"
-    )
-
-  });
-
-
-
 });
