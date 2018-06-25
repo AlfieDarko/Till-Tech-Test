@@ -1,6 +1,7 @@
 (function(exports) {
   class Buttons {
     constructor(till) {
+      this.till = till
     }
 
     addName() {
@@ -19,11 +20,11 @@
         $("#items-in-dropdown option:selected").each(function(indexOfItem, selectedItem) {
           items.push($(selectedItem).val());
         });
-        till.addToBasket({
+        this.till.addToBasket({
           name: _customerNameFromInput,
           items: [...items]
         });
-        till.returnBasketItems().forEach(function(item) {
+        this.till.returnBasketItems().forEach(function(item) {
           let option = document.createElement("option");
           option.textContent = item;
           option.disabled = true;
@@ -35,7 +36,7 @@
     }
 
     clearCart() {
-      till.clearBasket();
+      this.till.clearBasket();
       $("#cart-with-items")
         .find("option")
         .remove()
@@ -46,7 +47,7 @@
 
     submitToTill() {
       let moneyInTillTextArea = $("#money-in-till-text-area").val();
-      till.makePayment(moneyInTillTextArea);
+      this.till.makePayment(moneyInTillTextArea);
       display.printReceipt();
       this.closePaymentScreen();
     }

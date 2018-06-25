@@ -6,5 +6,5 @@ let tax = new Tax();
 let discount = new Discount();
 let receipt = new Receipt(total, tax, discount);
 let till = new Till(basket, payments, receipt);
-let display = new Display()
-let buttons = new Buttons();
+let display = new Display(till)
+let buttons = new Buttons(till);

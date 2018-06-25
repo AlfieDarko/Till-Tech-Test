@@ -1,16 +1,17 @@
 (function(exports) {
   class Display {
     constructor(till) {
+      this.till = till
     }
 
     viewTotal() {
-      let basket = till.returnBasket();
-      let preTotal = till.calculate(basket);
-      let preTotalWithDiscounts = till.applyDiscounts(
+      let basket = this.till.returnBasket();
+      let preTotal = this.till.calculate(basket);
+      let preTotalWithDiscounts = this.till.applyDiscounts(
         preTotal,
         basket
       );
-      let appliedTax = till.applyTax(preTotal).toFixed(2);
+      let appliedTax = this.till.applyTax(preTotal).toFixed(2);
       let amountToTax = appliedTax - preTotal;
       let totalWithTax =
         parseFloat(preTotalWithDiscounts.toFixed(2)) + parseFloat(amountToTax);
@@ -18,7 +19,7 @@
     }
 
     printReceipt() {
-      let receipt = till.printReceipt(till.returnBasket());
+      let receipt = this.till.printReceipt(this.till.returnBasket());
       $("#receipt-text-area").val(
         receipt.map(
           receiptLine => `${receiptLine}` + "\n"
