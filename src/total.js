@@ -20,15 +20,15 @@
       let lineTotal = [];
       let items = args.items;
       let self = this;
-      
+
       items.map(item => {
         if (self.products.listProducts().hasOwnProperty(item)) {
           lineTotal.push(self.products.listProducts()[item]);
         }
       });
-
       return lineTotal;
     }
+
   }
 
   exports.Total = Total;

@@ -26,4 +26,9 @@ $(document).ready(function() {
   $(".delete").click(function() {
     $(".modal").removeClass("is-active");
   });
+
+  $("#next-customer-button").click(function() {
+    buttons.nextCustomer()
+    display.resetDisplay()
+  })
 });

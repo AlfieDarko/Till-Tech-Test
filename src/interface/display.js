@@ -26,6 +26,14 @@
         ).join('')
       );
     }
+
+    resetDisplay(){
+      $("#customer-names-input").val("")
+      $("#customer-names-input").prop("disabled", false);
+      $("#add-name-button").prop("disabled", false);
+      $("#total-text-area").val('')
+      $("#receipt-text-area").val('')
+    }
   }
 
   exports.Display = Display;

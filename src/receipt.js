@@ -93,6 +93,8 @@
     clearReceipt(){
       _receiptArray.length = 0
     }
+
+
   }
 
   let  _receiptArray = [];

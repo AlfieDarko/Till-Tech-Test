@@ -174,4 +174,6 @@ describe("Receipt", function() {
       expect(receipt.printReceipt()).to.include("18/04/1991 09:00:00 \n")
     });
   });
+
+
 });

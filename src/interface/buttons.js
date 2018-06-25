@@ -55,6 +55,11 @@
     closePaymentScreen() {
       $(".modal").removeClass("is-active");
     }
+
+    nextCustomer(){
+      this.clearCart()
+      this.till.nextCustomer()
+    }
   }
   let _customerNameFromInput;
 

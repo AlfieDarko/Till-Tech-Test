@@ -27,6 +27,13 @@
     showAmountGiven() {
       return _amountGiven
     }
+
+    resetPayments(){
+      _amountGiven = 0
+      _expectedPayment = 0;
+      _changeExpected = 0;
+
+    }
   }
 
   let _amountGiven = 0

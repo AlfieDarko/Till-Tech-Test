@@ -45,5 +45,27 @@ describe("Payments", function() {
 			payments.takePayment(10);
 			expect(payments.returnChange()).to.eql(2.61);
 		});
-	});
+	})
+
+	describe('.resetPayments()', function() {
+		it('resets expected payment to default back to 0', function() {
+			payments.setExpectedPayment(7.39);
+			payments.resetPayments()
+			expect(payments.showExpectedPayment()).to.eql(0)
+		});
+
+		it('resets the expected0change back to 0', function() {
+			payments.setExpectedPayment(7.39);
+			payments.takePayment(10);
+			payments.resetPayments()
+			expect(payments.returnChange()).to.eql(0)
+		});
+
+		it('resets amount given back to zero', function() {
+			payments.setExpectedPayment(7.39);
+			payments.takePayment(10);
+			payments.resetPayments()
+			expect(payments.showAmountGiven()).to.eql(0)
+		});
+	});;
 });

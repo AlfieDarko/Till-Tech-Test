@@ -65,6 +65,13 @@
       );
     }
 
+    nextCustomer(){
+      this.basket.clearBasket()
+      this.receipt.clearReceipt()
+      this.payments.resetPayments()
+      this.receipt.discount.resetDiscounts()
+    }
+
 
 
   }
